@@ -89,7 +89,7 @@ LGraph* LGraphGen_RandomNM(ui2 inN, ui4 inM, ui4 inSeed)
 
 		if ( LHash_IsInTable(theHashList[theSource], theTarget) )
 		{
-			theRand = (ui4)LHash_GetItemByKey(theHashList[theSource], theTarget);
+			theRand = *((ui4*)LHash_GetItemByKey(theHashList[theSource], theTarget));
 			LHash_RemoveItem(theHashList[theSource], theTarget);
 		}
 		
@@ -98,11 +98,11 @@ LGraph* LGraphGen_RandomNM(ui2 inN, ui4 inM, ui4 inSeed)
 		theCol = theCount % inN;
 		if ( LHash_IsInTable(theHashList[theRow], theCol) )
 		{
-			theValue = (ui4)LHash_GetItemByKey(theHashList[theRow], theCol);
-			LHash_InsertItem(theHashList[theSource], (void*)theValue, theTarget);
+			theValue = *((ui4*)LHash_GetItemByKey(theHashList[theRow], theCol));
+			LHash_InsertItem(theHashList[theSource], &theValue, theTarget);
 		}
 		else
-            LHash_InsertItem(theHashList[theSource], (void*)theCount, theTarget);
+            LHash_InsertItem(theHashList[theSource], &theCount, theTarget);
 
 		theSource = theRand / inN;
 		theTarget = theRand % inN;
@@ -175,7 +175,7 @@ LGraph* LGraphGen_RandomUNM(ui2 inN, ui4 inM, ui4 inSeed)
 		theTarget = theRand - theSource*(2*inN-1-theSource)/2;
 		if ( LHash_IsInTable(theHashList[theSource], theTarget) )
 		{
-			theRand = (ui4)LHash_GetItemByKey(theHashList[theSource], theTarget);
+			theRand = *((ui4 *)LHash_GetItemByKey(theHashList[theSource], theTarget));
 			LHash_RemoveItem(theHashList[theSource], theTarget);
 		}
 		
@@ -184,11 +184,11 @@ LGraph* LGraphGen_RandomUNM(ui2 inN, ui4 inM, ui4 inSeed)
 		theCol = theCount - theRow*(2*inN-1-theRow)/2;
 		if ( LHash_IsInTable(theHashList[theRow], theCol) )
 		{
-			theValue = (ui4)LHash_GetItemByKey(theHashList[theRow], theCol);
-			LHash_InsertItem(theHashList[theSource], (void*)theValue, theTarget);
+			theValue = *((ui4*)LHash_GetItemByKey(theHashList[theRow], theCol));
+			LHash_InsertItem(theHashList[theSource], &theValue, theTarget);
 		}
 		else
-            LHash_InsertItem(theHashList[theSource], (void*)theCount, theTarget);
+            LHash_InsertItem(theHashList[theSource], &theCount, theTarget);
 
 		theSource = (ui4)LMath_Floor(((2*inN+1)-LMath_Sqrt((2*inN+1)*(2*inN+1)-8*theRand))/2);
 		theTarget = theRand - theSource*(2*inN-1-theSource)/2;
@@ -313,7 +313,7 @@ LGraph* LGraphGen_RandomUNP(ui2 inN, f4 inP, ui4 inSeed)
 
 			if ( LHash_IsInTable(theHashList[theSource], theTarget) )
 			{
-				theRand = (ui4)LHash_GetItemByKey(theHashList[theSource], theTarget);
+				theRand = *((ui4 *)LHash_GetItemByKey(theHashList[theSource], theTarget));
 				LHash_RemoveItem(theHashList[theSource], theTarget);
 			}
 		
@@ -322,11 +322,11 @@ LGraph* LGraphGen_RandomUNP(ui2 inN, f4 inP, ui4 inSeed)
 			theCol = theCount % inN;
 			if ( LHash_IsInTable(theHashList[theRow], theCol) )
 			{
-				theValue = (ui4)LHash_GetItemByKey(theHashList[theRow], theCol);
-				LHash_InsertItem(theHashList[theSource], (void*)theValue, theTarget);
+				theValue = *((ui4 *)LHash_GetItemByKey(theHashList[theRow], theCol));
+				LHash_InsertItem(theHashList[theSource], &theValue, theTarget);
 			}
 			else
-				LHash_InsertItem(theHashList[theSource], (void*)theCount, theTarget);
+				LHash_InsertItem(theHashList[theSource], &theCount, theTarget);
 
 			theSource = theRand / inN;
 			theTarget = theRand % inN;

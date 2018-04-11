@@ -209,7 +209,7 @@ LDStar_TNodeInfo LDStar_GetNodeInfo(LDStar* This, LDStar_TPoint inP)
 	theInfo.mTag = LNodeInfo_UI1At(This->mTag, theX);
 	if ( (theInfo.mTag) == LDStar_OPEN_NODE)
 	{
-		theIdx = (ui4)LHash_GetItemByKey(This->mKIndices, (ui4)theX->mIndex);
+		theIdx = *((ui4*)LHash_GetItemByKey(This->mKIndices, (ui4)theX->mIndex));
 		LHeap_GetEntryAt(This->mK, (void**)&theState, (ui4*)&theK_x, theIdx);
 		if ( theK_x < theInfo.mH)
 			theInfo.mStatus = LDStar_LOWER_NODE;
@@ -262,7 +262,7 @@ LDStar_TPoint* LDStar_MoveAgent(LDStar* This, i4 inN, i4* outLen)
 		}
 		theIdx = LHeap_Add(This->mK, (void*)This->mGoal, 0);
 		This->mOpenListCount++;
-		LHash_InsertItem(This->mKIndices, (void*)theIdx, (ui4)This->mGoal->mIndex);
+		LHash_InsertItem(This->mKIndices, &theIdx, (ui4)This->mGoal->mIndex);
 		while ((LNodeInfo_UI1At(This->mTag, This->mCurrent) != LDStar_CLOSED_NODE) 
 				&& (theVal != NO_VAL))
 			theVal = ProcessState(This);
@@ -501,13 +501,13 @@ void Insert(LDStar* This, LGraph_TNode* inX, ui4 inH_new)
 	{
 		theIdx = LHeap_Add(This->mK, (void*)inX, inH_new);
 		This->mOpenListCount++;
-		LHash_InsertItem(This->mKIndices, (void*)theIdx, (ui4)inX->mIndex);
+		LHash_InsertItem(This->mKIndices, &theIdx, (ui4)inX->mIndex);
 	}
 	else
 	{
 		if (theTag_x == LDStar_OPEN_NODE)
 		{
-			theIdx = (ui4)LHash_GetItemByKey(This->mKIndices, (ui4)inX->mIndex);
+			theIdx = *((ui4*)LHash_GetItemByKey(This->mKIndices, (ui4)inX->mIndex));
 			LHeap_GetEntryAt(This->mK, (void**)&theState, (ui4*)&theK_x, theIdx);
 			theMin = MIN(theK_x, inH_new);
 			LHeap_Update(This->mK, (void*)theState, theMin, theIdx);
@@ -518,7 +518,7 @@ void Insert(LDStar* This, LGraph_TNode* inX, ui4 inH_new)
 			theMin = MIN(theH_x, inH_new);
 			theIdx = LHeap_Add(This->mK, (void*)inX, theMin);
 			This->mOpenListCount++;
-			LHash_InsertItem(This->mKIndices, (void*)theIdx, (ui4)inX->mIndex);
+			LHash_InsertItem(This->mKIndices, &theIdx, (ui4)inX->mIndex);
 		}
 	}
 	LNodeInfo_UI4At(This->mH, inX) = inH_new;
@@ -536,7 +536,7 @@ void Delete(LDStar* This, LGraph_TNode* inX)
 	ui4 theIdx;
 
 	/* we must update K(x) */
-	theIdx = (ui4)LHash_GetItemByKey(This->mKIndices, (ui4)inX->mIndex);
+	theIdx = *((ui4*)LHash_GetItemByKey(This->mKIndices, (ui4)inX->mIndex));
 	LHash_RemoveItem(This->mKIndices, (ui4)inX->mIndex);
 	This->mOpenListCount--;
 	LHeap_Remove(This->mK, theIdx);

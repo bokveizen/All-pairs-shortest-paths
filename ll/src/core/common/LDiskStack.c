@@ -95,7 +95,7 @@ void LDiskStack_Delete(LDiskStack** ThisA) {
 
 void LDiskStack_Push(LDiskStack* This, const void* inBlock, ui4 inSize) {
 
-    ui4 theSizeUsed = (ui4)This->MemTop - (ui4)This->MemBufferBase;
+    ui4 theSizeUsed = *((ui4*)This->MemTop) - *((ui4*)This->MemBufferBase);
     ui4 theSizeLeft = This->MemBufferSize - theSizeUsed;
         
     if (inSize >= theSizeLeft) {        
@@ -131,7 +131,7 @@ void LDiskStack_Push(LDiskStack* This, const void* inBlock, ui4 inSize) {
 
 void LDiskStack_Pop(LDiskStack* This, void* outBlock, const ui4 inSize) {
 
-    ui4 theSizeUsed = (ui4)This->MemTop - (ui4)This->MemBufferBase;
+    ui4 theSizeUsed = *((ui4*)This->MemTop) - *((ui4*)This->MemBufferBase);
     
     if(inSize > theSizeUsed) {
         
@@ -182,7 +182,7 @@ Bool LDiskStack_IsEmpty(LDiskStack* This) {
  */
 
 ui4 LDiskStack_GetSize(LDiskStack* This) {
-    return This->FileBufferSize + (ui4)This->MemTop - (ui4)This->MemBufferBase;
+    return This->FileBufferSize + *((ui4*)This->MemTop) - *((ui4*)This->MemBufferBase);
 }
 
 
