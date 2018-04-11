@@ -1,0 +1,231 @@
+<html>
+<head>
+<title>LProgressBar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LProgressBar</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The ProgressBar Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LProgressBar<span lang="it">.h</span>, L<span lang="it">ProgressBar_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jul</span> <span lang="it">28</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jul</span> <span lang="it">28</span>, 
+      200<span lang="it">2</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LProgressBar<span lang="it"> </span></tt>
+provides support for creating and managing ProgressBar widgets.</p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LProgressBar_ID</pre>
+      <pre>LProgressBar_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LProgressBar
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LProgressBar*    LProgressBar_Create         (LWindow* inWindow, i4 inX, i4 inY, ui4 inDX, ui4 inDY)
+void        LProgressBar_Destroy        (LProgressBar* inBar)
+void        LProgressBar_Move       (LProgressBar* inBar, i4 inX, i4 inY)
+void        LProgressBar_SetPosition    (LProgressBar* inBar, ui2 inPos)
+void        LProgressBar_SetRange       (LProgressBar* inBar, ui2 inMinRange, ui2 inMaxRange)
+void        LProgressBar_SetStep        (LProgressBar* inBar, ui2 inStep)
+void        LProgressBar_StepIt         (LProgressBar* inBar)
+LWindow*    LProgressBar_GetParentWindow    (LProgressBar* inBar)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5">Creates a progressbar with the 
+    specified attributes.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"> <tt>LProgressBar*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><font face="Courier New" size="2">
+    <span lang="it">i4 inX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">i4 inY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LProgressBar* inBar </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inBar.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      <font face="Courier New" size="2"><span lang="it">Move</span></font></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LProgressBar* inBar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      Moves inBar to the specified coordinates (origin in upper left corner of 
+      parent window).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">i4 inX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">i4 inY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">
+    SetPosition</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LProgressBar* inBar </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets inBar's new position and 
+    redraws it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">ui2 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    SetRange</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LProgressBar* inBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Sets inBar's new range and 
+    redraws it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui2 inMinRange</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui2 inMaxRange</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">
+    <font face="Courier New" size="2"><span lang="it">SetStep</span></font></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LProgressBar* inBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets inBar's step.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui2 inStep</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><font face="Courier New" size="2">
+    <span lang="it">StepIt</span></font></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LProgressBar* inBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Advances inBar by the current step and 
+    redraws it.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    GetParentWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LProgressBar* inBar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns inBar's parent window.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  </table>
+<hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Jul</span> <span lang="it">28</span>, 200<span lang="it">2</span>: created.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

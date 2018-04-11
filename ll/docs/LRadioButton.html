@@ -1,0 +1,239 @@
+<html>
+<head>
+<title>LRadioButton</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LRadioButton</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The RadioButton Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LRadioButton<span lang="it">.h</span>, 
+    LRadioButton_win32.h, L<span lang="it">RadioButton_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jun</span> <span lang="it">5</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">2</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LRadioButton<span lang="it"> </span></tt><span lang="it">
+<font face="Times New Roman" size="4"> <tt><font face="Times New Roman">provides support for creating and managing RadioButton widgets.</font></tt></font></span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LRadioButton_ID</pre>
+      <pre>LRadioButton_<tt><span lang="it">CANT_CREATE</span></tt></pre>
+      <pre>LRadioButton_MAX_TEXT</pre>
+      <pre>LRadioButton_CHECKED</pre>
+      <pre>LRadioButton_UNCHECKED
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LRadioButton</pre>
+      <pre>void (*LRadioButton_THandler) (LRadioButton* inRadio)
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LRadioButton*    LRadioButton_Create     (LWindow* inWindow, i4 inX, i4 inY, ui4 inDX, ui4 inDY, i1* inText, LRadioButton_THandler inHandler)
+void        LRadioButton_Destroy    (LRadioButton* inRadio)
+void        LRadioButton_Move   (LRadioButton* inRadio, i4 inX, i4 inY)
+void        LRadioButton_Resize     (LRadioButton* inRadio, ui4 inWidth, ui4 inHeight)
+void        LRadioButton_SetFocus   (LRadioButton* inRadio)
+void        LRadioButton_SetState   (LRadioButton* inRadio, ui2 inCheckedUnchecked)
+ui2         LRadioButton_QueryState (LRadioButton* inRadio)
+void        LRadioButton_Enable     (LRadioButton* inButton, Bool inEnabled)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7">Creates a radiobutton with the 
+    specified attributes.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"> <tt>LRadioButton*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inY </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDY</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">i1* inText </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LRadioButton_THandler 
+    inHandler </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LRadioButton* inRadio </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inRadio.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Move</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LRadioButton* inRadio </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Moves inRadio (origin of 
+    coordinates in upper left corner of parent window).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inX </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inY </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Resize</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LRadioButton* inRadio </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Resizes inRadio.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inWidth</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inHeight</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    SetFocus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LRadioButton* inRadio </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Sets the keyboard focus to the specified 
+    radiobutton.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">
+    SetState</span></tt></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LRadioButton* inRadio</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets the state of inRadio (available 
+    states are LRadioButton_CHECKED and LRadioButton_UNCHECKED).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">ui2 inCheckedUnchecked</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    QueryState</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LRadioButton* inRadio</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns inRadio's state (LRadioButton_CHECKED 
+    or LRadioButton_UNCHECKED).</td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">ui2</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">
+    Enable</span></tt></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LRadioButton* inRadio</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">If inEnabled is TRUE, enables 
+    the radiobutton, otherwise disables it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><font face="Courier New" size="2">Bool 
+    inEnabled</font></td>
+  </tr>
+  </table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Jun</span> <span lang="it">5</span>, 200<span lang="it">2</span>: created.</li>
+  <li> Feb 2, 2003: last updated.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

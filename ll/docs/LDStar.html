@@ -1,0 +1,282 @@
+<html>
+    <head>
+        <title>LDStar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+    <body text="#000000" bgColor="#ffffff">
+        <h1>LDStar</h1>
+        <table cellSpacing="1" cellPadding="2" width="100%" border="0">
+            <tr>
+                <td bgColor="#e6e6e6"><b>Description</b></td>
+                <td bgColor="#e6e6e6">Implementation of D*, Dynamic A* algorithm</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Files</b></td>
+                <td bgColor="#e6e6e6"><tt>&lt;LDStar.h, LDStar.c&gt;</tt></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Author</b></td>
+                <td bgColor="#e6e6e6"><A href="mailto:thepomy@tin.it">Stefano Emiliozzi</A>
+                </td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Created</b></td>
+                <td bgColor="#e6e6e6">Mar 03, 2003</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Last updated</b></td>
+                <td bgColor="#e6e6e6">Mar 03, 2003</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Contents</h2>
+        <ul>
+            <li>
+                <A href="#intro">Introduction</A>
+            <li>
+                <A href="#interface">Interface</A>
+            <li>
+                <A href="#apiref">API reference</A>
+            <li>
+                <A href="#history">Revision history</A></li></ul>
+        <hr>
+        <h2><b><a name="intro"></a>Introduction</b></h2>
+        The component <tt>LDStar</tt> is an implementation of Dynamic A* (D*) 
+        algorithm. It can be used to find shortest path in a map, with the possibility 
+        of dynamic changes in the environment. For details on the algorithm, look <A href="http://www.frc.ri.cmu.edu/~axs/">
+            Tony Stentz</A> page.
+        <p>
+            <hr>
+            <h2><b><a name="interface"></a>Interface</b></h2>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Constants</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LDStar_ID<br>
+                            LDStar_NEW_NODE<br>
+                            LDStar_OPEN_NODE<br>
+                            LDStar_CLOSED_NODE<br>
+                            LDStar_RAISE_NODE<br>
+                            LDStar_LOWER_NODE</tt>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Types</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2">
+                        <tt>struct LDStar<br>
+                            struct LDStar_TPoint<br>
+                            struct LDStar_TNodeInfo </tt>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Functions</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2">
+                        <tt>LDStar* LDStar_New(ui4 inN, LDStar_TPoint inStart, LDStar_TPoint inGoal)<br>
+                            void LDStar_Delete(LDStar** ThisA)<br>
+                            void LDStar_SetEdge(LDStar* This, LDStar_TPoint inP0, LDStar_TPoint inP1, ui4 
+                            inValue)<br>
+                            LDStar_TNodeInfo LDStar_GetNodeInfo(LDStar* This, LDStar_TPoint inP)<br>
+                            LDStar_TPoint* LDStar_MoveAgent(LDStar* This, i4 inN, i4* outLen)<br>
+                            LDStar_TPoint LDStar_CurrentLocation(LDStar* This)<br>
+                            ui4 LDStar_GetEdgeCost(LDStar* This, LDStar_TPoint inP0, LDStar_TPoint inP1)<br>
+                            LDStar_TPoint LDStar_GetStart(LDStar* This)<br>
+                            LDStar_TPoint LDStar_GetGoal(LDStar* This)<br>
+                            LDStar_TPoint* LDStar_GetProcessedNodes(LDStar* This)<br>
+                            Bool LDStar_Finished(LDStar* This)<br>
+                            ui4 LDStar_TotalProcessedNodes(LDStar* This)<br>
+                            ui4 LDStar_NodesProcessedSinceLast(LDStar* This)<br>
+                            ui4 LDStar_GetBase(LDStar* This) </tt>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h2><a name="apiref"></a>API Reference</h2>
+            <br>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Function</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                    <td bgColor="#e6e6e6"><b>Returns</b></td>
+                    <td bgColor="#e6e6e6"><b>Throws</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt><font color="#ff0000">New</font></tt></td>
+                    <td bgColor="#e6e6e6" nowrap>
+                        <tt>ui4 inN<br>
+                            LDStar_TPoint inStart<br>
+                            LDStar_TPoint inGoal<br>
+                        </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">
+                        Creates an object containing a regular grid representing a map. Caller must 
+                        provide start and end point of the agent. <font color="#ff0000">Caller is 
+                            responsible of dellocating the created object using <tt>LDStar_Delete</tt>.</font></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LDStar*</tt></p>
+                        <p>pointer to the newly created object</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>Delete</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LDStar** ThisA</tt></td>
+                    <td bgColor="#e6e6e6">Releases object <tt>*ThisA</tt>. <tt>*ThisA</tt> is set to <tt>NULL</tt>.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>SetEdge</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This<br>
+                            LDStar_TPoint inP0<br>
+                            LDStar_TPoint inP1<br>
+                            ui4 inValue </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Sets the weight of the edge between <tt>(inP0, inP1)</tt> if 
+                        the agent has already moved, it re-plans the shortest path</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetNodeInfo</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This<br>
+                            LDStar_TPoint inP </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns useful infos about nodes of the map</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TNodeInfo</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>MoveAgent</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This<br>
+                            i4 inN<br>
+                            i4 *outLen </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Moves the agent by <tt>inN</tt> steps along the shortest path 
+                        and returns the list of passed states. It saves on outLen the length of the 
+                        returned array. Note that the is returned only if <tt>inN > 1</tt> otherwise <tt>NULL</tt>
+                        is returned. This is to avoid the user to deallocate the returned array every 
+                        time that he calls MoveAgent with <tt>1</tt> as <tt>inN</tt>. The returned 
+                        array is useful when on large maps the user calls a <tt>MoveAgent</tt> with 
+                        high values of <tt>inN</tt> but wants to know where the agent is passed.</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TPoint*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>CurrentLocation</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the current location of the agent.</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TPoint</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetEdgeCost</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This<br>
+                            LDStar_TPoint inP0<br>
+                            LDStar_TPoint inP1 </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the cost of the edge <tt>(inP0, inP1)</tt> of the 
+                        map.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetStart</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the start point of the agent.</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TPoint</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetGoal</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the goal point of the agent.</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TPoint</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetProcessedNodes</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns a list of processed nodes since last re-planning.</td>
+                    <td bgColor="#e6e6e6"><tt>LDStar_TPoint*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>Finished</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns <tt>TRUE</tt> if the agent is at goal or no path 
+                        exists.</td>
+                    <td bgColor="#e6e6e6"><tt>Bool</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>TotalProcessedNodes</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the number of total processed nodes since the 
+                        beginning.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>NodesProcessedSinceLast</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the number of processed nodes since last re-plannig.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetBase</tt></td>
+                    <td noWrap bgColor="#e6e6e6">
+                        <tt>LDStar* This</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns the base side <tt>(n)</tt> of the <tt>(n x n)</tt> map.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+            </table>
+        <p>
+            <hr>
+            <h2><a name="history"></a>Revision history</h2>
+            <ul>
+                <li>
+                    Mar 03, 2003: created.</li>
+            </ul>
+            <hr>
+        <p align="right"><font size="-1"><A href="../index.html">Leonardo Developer Documentation</A><br>
+                Last updated: Mar 03, 2003</font></p>
+    </body>
+</html>

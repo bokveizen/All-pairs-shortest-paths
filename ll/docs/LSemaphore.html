@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>LSemaphore</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LSemaphore</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> Semaphore Management</td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LSemaphore<span lang="it">.h</span>, L<span lang="it">Semaphore_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jan</span> <span lang="it">9</span>, 
+    200<span lang="it">3</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jan</span> <span lang="it">9</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LSemaphore<span lang="it"> </span></tt>
+<span lang="it">provides support for creating and managing semaphores.</span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LSemaphore_ID</pre>
+      <pre>LSemaphore_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LSemaphore
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LSemaphore*  LSemaphore_New      (ui4 inVal)
+void        LSemaphore_Signal   (LSemaphore* inSem)
+void        LSemaphore_Wait     (LSemaphore* inSem)
+void        LSemaphore_Delete   (LSemaphore* inSem)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">
+    New&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inVal</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26">Creates a new semaphore and initializes it 
+    to inVal.</td>
+    <td bgcolor="#E6E6E6" height="26"> <tt>LSemaphore*</tt></td>
+    <td bgcolor="#E6E6E6" height="26"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Signal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LSemaphore* inSem </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Increases a semaphore's value.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <font face="Courier New" size="2"><span lang="it">Wait</span></font></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LSemaphore* inSem</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      Attempts to decrease a semaphore's value. If not possible (because the 
+      semaphore has already reached 0) halts the current thread until inSem is &quot;signalled&quot; 
+      by some other thread.</td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <span lang="it"><font face="Courier New" size="2">Delete</font></span></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LSemaphore* inSem </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      Deletes a semaphore.</td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  </table>
+<hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Jan</span> <span lang="it">9</span>, 200<span lang="it">3</span>: created.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

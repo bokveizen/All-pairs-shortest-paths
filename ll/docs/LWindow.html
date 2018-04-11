@@ -1,0 +1,463 @@
+<html>
+<head>
+<title>LWindow</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1><span lang="it">LWindow</span></h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">LSL Window Management </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;L<span lang="it">Window.h</span>, 
+    LWindow_win32.h, L<span lang="it">Window_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">10</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Mar 27</span>, 200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>L<span lang="it">Window </span></tt><span lang="it">provides 
+support for managing windows (open, close, resize, move, maximize, minimize...) 
+and installing event handlers (close, activate, mouse down...).</span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>L<span lang="it">Window</span>_ID    </pre>
+      <pre><span lang="it">LWindow_MAX_TITLE</span></pre>
+      <pre><span lang="it">LWindow_</span><tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre><span lang="it">enum tagLWindow_TEventID {
+    LWindow_MOUSE_DOWN = 0x00,
+    LWindow_CLOSE = 0x01,
+    LWindow_ACTIVATE = 0x02,
+    LWindow_RESIZE = 0x03,
+    LWindow_MOUSE_MOVE = 0x04,
+    LWindow_SET_FOCUS = 0x05
+} LWindow_TEventID</span></pre>
+      <pre><span lang="it">enum tagLWindow_TSizeStatus {
+    LWindow_USER,
+    LWindow_MINIMIZED,
+    LWindow_MAXIMIZED
+} LWindow_TSizeStatus</span></pre>
+      <pre><span lang="it">enum tagLWindow_TWindowType {
+    LWindow_REGULAR,
+    LWindow_FLOATING
+} LWindow_TWindowType</span></pre>
+      <pre><span lang="it">typedef enum tagLWindow_TStyle {
+    LWindow_Resizeable = 1,
+    LWindow_Caption = 2,
+    LWindow_MinMaxBox = 4
+} LWindow_TStyle</span></pre>
+      <pre><span lang="it">struct LWindow</span></pre>
+      <pre><span lang="it">Bool (*LWindow_THandler) (LWindow* inWindow, ...)</span><br>Bool (*_LWindow_THandler) ()
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2" width="939"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2" width="939"> 
+      <pre>LWindow*            LWindow_Create       (LWindow_TWindowType inWindowType, ui4 inStyle)
+void                LWindow_Destroy         (LWindow* inWindow)
+void                LWindow_SetSizeStatus   (LWindow* inWindow, LWindow_TSizeStatus inStatus)
+LWindow_TSizeStatus LWindow_GetSizeStatus   (LWindow* inWindow)
+void                LWindow_Move        (LWindow* inWindow, ui4 inX, ui4 inY)
+void                LWindow_Resize      (LWindow* inWindow, ui4 inWidth, ui4 inHeight)
+void                LWindow_Finalize        (LWindow* inWindow)
+void                LWindow_SetTitle        (LWindow* inWindow, const i1* inTitle)
+void                LWindow_GetTitle        (LWindow* inWindow, i1* outTitle)
+void                LWindow_BringToFront    (LWindow* inWindow)
+void                LWindow_Close       (LWindow* inWindow)
+LWindow*            LWindow_GetFrontWindow  ()
+void                LWindow_InstallEvent    (LWindow* inWindow, LWindow_TEventID inEventID, LWindow_THandler inEventHandler) 
+LWindow_TWindowType LWindow_GetType         (LWindow* inWindow)
+void                LWindow_GetClientAreaSize   (LWindow* inWindow, ui4* outWidth, ui4* outHeight)
+void                LWindow_SetUserData     (LWindow* inWindow, const void* inData)
+void*               LWindow_GetUserData     (LWindow* inWindow)
+void                LWindow_SetCursorShape      (LWindow* inWindow, LCursor_TShape inCursorShape)
+LCursor_TShape      LWindow_GetCursorShape      (LWindow* inWindow)
+void                LWindow_EnableMinMax        (LWindow* inWindow, ui4 inMinX, ui4 inMinY, ui4 inMaxX, ui4 inMaxY)
+void                LWindow_DisableMinMax       (LWindow* inWindow)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1" height="738">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"><tt><span lang="it">Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">LWindow_TWindowType 
+      inWindowType</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"><span lang="it">Creates a new window of 
+      the specified type.</span> <span lang="it">The following types are currently available: REGULAR 
+        (just that, a regular window with no extra features); FLOATING (a &quot;palette&quot; 
+        window, exact features to be determined yet...).</span> InStyle is an OR 
+    combination of LWindow_TStyle parameters (LWindow_MinMaxBox has no effect on 
+    FLOATING windows).</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"> <tt><span lang="it">LWindow*</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"> <tt><span lang="it">CANT_CREATE</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">ui4 inStyle</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LWindow* inWindow</span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p><span lang="it">Destroys a window. Please note that this function does 
+        not generate a CLOSE event, therefore no event handler is invoked (see 
+        the Close function).</span></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">SetSizeStatus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="10"><tt><span lang="it">LWindow* inWindow </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><span lang="it">Sets a size 
+      status (i.e. minimized, user, maximized) for the specified window. Please 
+      note that if a window is maximized, it will automatically move to the front 
+      (i.e. on top of all other open windows).</span></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9"><tt><span lang="it">LWindow_TSizeStatus inStatus</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="57"><tt><span lang="it">GetSizeStatus&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="24"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="57"><span lang="it">Retrieves the size status 
+      (minimized, user, maxmized) of the specified window.</span></td>
+    <td bgcolor="#E6E6E6" height="57"><tt><span lang="it">LWindow_TSizeStatus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="57"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><tt><span lang="it">Move</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><span lang="it">Moves a window 
+      into a new position (origin of coordinates in the upper left corner of the 
+      workspace).</span></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inX</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inY</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt><span lang="it">Resize&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><span lang="it">Resizes a window. 
+    inWidth and inHeight specify total window size (including border and 
+    titlebar).</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">ui4 inWidth</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="12"><tt><span lang="it">ui4 inHeight</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9"><tt>F<span lang="it">inalize&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="9"><span lang="it">Makes a window visible.</span></td>
+    <td bgcolor="#E6E6E6" height="9"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="9"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt><span lang="it">SetTitle&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><span lang="it">Sets a window's 
+      title.</span></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt><span lang="it">const i1* inTitle</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt><span lang="it">GetTitle&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><span lang="it">Gets a window's 
+      title.</span></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt><span lang="it">i1* outTitle</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">BringToFront</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><span lang="it">Brings a window to the foreground 
+      (i.e. on top of all other open windows).</span></td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <p><tt>void</tt></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">Close</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><span lang="it">Sends a CLOSE event to the 
+      specified window. Whether the window will close or not depends on the event 
+      handler currently installed. If no handler for the CLOSE event is installed, 
+      the window will close.</span></td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <p><tt>void</tt></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">GetFrontWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><span lang="it">Gets the foreground window. 
+      Returns NULL if there's no open window.</span></td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <p><tt><span lang="it">LWindow*</span></tt></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt><span lang="it">InstallEvent&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><span lang="it">Installs an 
+      event handler for the specified window and the specified event. If the handler 
+      returns FALSE, the default (system) handler will be invoked. If no handler 
+      is installed for a specific event, the default (system) handler is used. 
+      </span>
+      <table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#000000" style="border-collapse: collapse">
+        <tr bgcolor="#666666"> 
+          <td><b><font color="#FFFFFF">Event ID</font></b></td>
+          <td><b><font color="#FFFFFF">Extra Handler&nbsp; Arguments</font></b></td>
+          <td><b><font color="#FFFFFF">Description</font></b></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td> MOUSE_DOWN<br>
+          </td>
+          <td>ui4 inX, ui4 inY</td>
+          <td>Specify pointer posizion, relative to upper left corner of window's 
+          client area.</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>MOUSE_MOVE</td>
+          <td>ui4 inX, ui4 inY</td>
+          <td>See MOUSE_DOWN</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>CLOSE</td>
+          <td>-</td>
+          <td>- </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>ACTIVATE</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>RESIZE</td>
+          <td>ui4 inX, ui4 inY</td>
+          <td>Specify new window size (including titlebar and border).</td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>SET_FOCUS</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </table>
+      
+    </td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">LWindow_TEventID inEventID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="12"><tt><span lang="it">LWindow_THandler inEventHandler</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it"> GetType</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38"><span lang="it">Returns window type.</span></td>
+    <td bgcolor="#E6E6E6" height="38"><tt>LWindow_TWindowType</tt></td>
+    <td bgcolor="#E6E6E6" height="38">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt><span lang="it"> GetClientAreaSize</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><span lang="it">Gets size of 
+      window's client area.</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt>ui4* outWidth</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt>ui4* outHeight</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt><span lang="it"> SetUserData</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2">Stores in the object <tt><span lang="it">inWindow</span></tt> 
+      a pointer <tt><span lang="it">inData</span></tt> to a user-defined data 
+      block.</td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt>-</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">const void* inData</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it"> GetUserData</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38"><span lang="it">Returns pointer previously 
+      installed via <tt><span lang="it">SetUserData</span></tt>.</span></td>
+    <td bgcolor="#E6E6E6" height="38"><tt>LWindow*</tt></td>
+    <td bgcolor="#E6E6E6" height="38">-</td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"><tt><span lang="it">
+    SetCursorShape</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2">Sets inWindow's cursor shape (default 
+    is LCursor_ARROW).</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="2"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LCursor_TShape 
+    inCursorShape</span></tt></td>
+    </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">
+    GetCursorShape</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26">Retrieves inWindow's cursor shape.</td>
+    <td bgcolor="#E6E6E6" height="26"> <tt><span lang="it">LCursor_TShape</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"><tt><span lang="it">
+    EnableMinMax</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5">Enables the user to specify 
+    constraints on min and max size of a window and starts enforcing them (max 
+    size constraints will hold even when the window is maximized).</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inMinX</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inMinY</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inMaxX</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inMaxY</span></tt></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">
+    DisableMinMax</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26">Stops enforcing size constraints on the 
+    specified window.</td>
+    <td bgcolor="#E6E6E6" height="26"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  </table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Feb</span> <span lang="it">10</span>, 200<span lang="it">2</span>: 
+    created.</li>
+  <li> Mar 6, 2002: updated.</li>
+  <li> Apr 5, 2002: updated.</li>
+  <li>Jul 22, 2002: added SetUserData, GetUserData.</li>
+  <li>Mar 27, 2003: last updated.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Jul 22, 2002</font></p>
+
+</body>
+</html>

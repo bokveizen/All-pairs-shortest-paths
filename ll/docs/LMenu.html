@@ -1,0 +1,440 @@
+<html>
+<head>
+<title>LMenu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>L<span lang="it">Menu</span></h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">LSL Menu Management </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;L<span lang="it">Menu.h</span>, L<span lang="it">Menu_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">4</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Mar</span> <span lang="it">12</span>, 
+    200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>L<span lang="it">Menu </span></tt><span lang="it">provides 
+support </span>f<span lang="it">or the creation and management of menus.</span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>L<span lang="it">Menu</span>_ID    </pre>
+      <pre>LMenu_<tt><span lang="it">CANT_CREATE</span></tt></pre>
+      <pre><span lang="it">LMenu_CHECKED</span></pre>
+      <pre>L<span lang="it">Menu</span>_<span lang="it">UNCHECKED</span>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre><span lang="it">struct LMenu</span></pre>
+      <pre><span lang="it">void (*LMenu_THandler) (void *inParam)</span>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table border="0" cellspacing="1" cellpadding="4" width="100%">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2" width="939"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LMenu*   LMenu_Create            (i1* inMenuName)
+void    LMenu_AppendMenuItem        (LMenu* inMenu, i1* inItemName, ui4 inItemID, i1* inShortcut, LMenu_THandler inItemHandler, void* inParam)
+void    LMenu_AppendMenuSeparator   (LMenu* inMenu)
+void    LMenu_AppendSubMenu         (LMenu* inMenu, LMenu* inSubMenu)
+void    LMenu_AppendMenuToMenuBar   (LMenu* inMenu)
+void    LMenu_ShowMenuBar       ()
+void    LMenu_EnableMenuItem        (LMenu* inMenu, ui4 inItemID)
+void    LMenu_DisableMenuItem       (LMenu* inMenu, ui4 inItemID)
+void    LMenu_CheckMenuItem         (LMenu* inMenu, ui4 inItemID, ui2 inCheckedUnchecked)
+void    LMenu_InstallHandler        (ui4 inItemID, LMenu_THandler inItemHandler, void* inParam)
+void    LMenu_InstallInitHandler    (LMenu* inMenu, LMenu_THandler inInitHandler, void* inParam)
+void    LMenu_RedrawMenuBar         ()
+void    LMenu_InsertMenuInMenuBar   (LMenu* inMenu, ui4 inPos)
+void    LMenu_RemoveMenuFromMenuBar     (ui4 inPos)
+void    LMenu_Destroy           (LMenu* inMenu)
+void    LMenu_InsertMenuItem        (LMenu* inMenu, ui4 inPos, i1* inItemName, ui4 inItemID, i1* inShortcut, LMenu_THandler inItemHandler, void* inParam)
+void    LMenu_RemoveMenuItemByID    (LMenu* inMenu, ui4 inItemID)
+void    LMenu_RemoveMenuItemByPos   (LMenu* inMenu, ui4 inPos)
+void    LMenu_InsertSubMenu         (LMenu* inMenu, LMenu* inSubMenu, ui4 inPos)
+void    LMenu_InsertMenuSeparator   (LMenu* inMenu, ui4 inPos)
+void    LMenu_HideMenuBar       ()
+void    LMenu_DisplayContextualMenu     (LMenu* inMenu, ui4 inX, ui4 inY)</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1" width="100%">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">i1* inMenuName</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26"><span lang="it">Creates a new menu, initially 
+      empty. Please note that the character '&amp;' has a special meaning in 
+    inMenuName: it will not be displayed, the character immediately following 
+    will be underlined, and pressing ALT+&quot;char following &amp;&quot; will open the menu.</span></td>
+    <td bgcolor="#E6E6E6" height="26"> <tt><span lang="it">LMenu*</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26"> <tt><span lang="it">CANT_CREATE</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="6"> 
+      <div align="left"> <tt><span lang="it">AppendMenuItem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LMenu* inMenu </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="6"> 
+      <p><span lang="it">Appends a menu item to a specific menu. inItemHandler 
+        can be null (means are provided for installing a handler later). inShortcut 
+        (if not null) should be a pointer to a string containing a single capital 
+        letter (for example &quot;S&quot;). The  itemID will identify the menu item uniquely. Please note that the character '&amp;' 
+      has a special meaning in inItemName: it will not be displayed, the 
+      character immediately following will be underlined, and pressing ALT+&quot;char 
+      following &amp;&quot; will select the menu item (only if the relevant menu is open).</span></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="6"> <tt><span lang="it">void</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="6"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">i1* inItemName</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i1* inShortcut</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LMenu_THandler inItemHandler</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt>void* inParam</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">AppendMenuSeparator</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">LMenu* inMenu </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><span lang="it">Appends a menu separator 
+      (usually a horizontal line).</span></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" rowspan="2" height="57"><tt><span lang="it">AppendSubMenu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="24"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" rowspan="2" height="57"><span lang="it">Appends a menu 
+      to another menu, turning it into a submenu.</span></td>
+    <td bgcolor="#E6E6E6" rowspan="2" height="57"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" rowspan="2" height="57"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="24"><tt><span lang="it">LMenu*</span> <span lang="it">inSubMenu</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="48"><tt><span lang="it">AppendMenuToMenuBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="48"><span lang="it">Appends the entire menu 
+      to te menubar.</span></td>
+    <td bgcolor="#E6E6E6" height="48"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="48"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it">ShowMenuBar&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it">-</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38"><span lang="it">Makes the menubar visible.</span></td>
+    <td bgcolor="#E6E6E6" height="38"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt><span lang="it">EnableMenuItem&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><span lang="it">If the menu item 
+      is disabled (i.e. grayed) this function enables it. If it already enabled, 
+      it has no effect.</span></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt><span lang="it">DisableMenuItem&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><span lang="it">If the menu item 
+      is enabled, this function disables it. If it already disabled, it has no 
+      effect.</span></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="9" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">CheckMenuItem</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><span lang="it">Depending on 
+      the value of inCheckedUnchecked, this function checks a menu item (i.e. 
+      displays a small tick-mark next to it) or unchecks it.</span></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"> 
+      <p><tt>void</tt></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui2 inCheckedUnchecked</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">InstallHandler</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inItemID</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><span lang="it">Installs (or 
+      replaces) a handler for the specified menu item.</span></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"> 
+      <p><tt>void</tt></p>
+    </td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu_THandler inItemHandler</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt>void* inParam</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">InstallInitHandler</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu </span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><span lang="it">Installs (or 
+    replaces) an initialization handler for the specified menu. Init handlers 
+    are evoked just before the menu &quot;pops up&quot;, or just after a keyboard shortcut 
+    has been pressed. </span></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu_THandler inInitHandler</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt>void* inParam</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">RedrawMenuBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">-</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1">Redraws the menubar. Should be called 
+    whenever the menubar has been modified, to make the changes effective.</td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">
+    InsertMenuInMenuBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2">Inserts a menu in the menubar. 
+    inPos is the zero-based index of the new menu.</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">RemoveMenuFromMenuBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1">Removes a menu from the menubar. inPos is 
+    the zero-based index of the menu to remove.</td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">Destroy</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1">Destroys a menu and frees the resources 
+    associated to it.</td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="7"><tt><span lang="it">
+    InsertMenuItem</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="7">Inserts a new item into a menu. 
+    inPos (zero-based index) specifies its position into the menu.</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="7"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="7"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">i1* inItemName</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">i1* inShortcut</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu_THandler inItemHandler</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt>void* inParam</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">
+    RemoveMenuItemByID</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2">Removes a menu item by its ID.</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inItemID</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">
+    RemoveMenuItemByPos</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2">Removes a menu item, submenu or 
+    menu separator, by its position (zero-based index).</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">
+    InsertSubMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3">Inserts a submenu into a menu. 
+    inPos is the zero-based position of the new submenu.</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inSubMenu</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">
+    InsertMenuSeparator</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2">Inserts a separator into a 
+    menu. inPos is the zero-based position of the separator.</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="2"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">HideMenuBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">-</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1">Hides the menubar.</td>
+    <td bgcolor="#E6E6E6" height="1"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">
+    DisplayContextualMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">LMenu* inMenu</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3">Displays a contextual menu at 
+    the specified global screen coordinates (origin in upper left corner of the 
+    screen).</td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"> 
+      <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="1" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inX</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inY</span></tt></td>
+  </tr>
+</table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Feb</span> <span lang="it">4</span>, 200<span lang="it">2</span>: created.</li>
+  <li> <span lang="it">Mar 12, 2003: last updated.</span></li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

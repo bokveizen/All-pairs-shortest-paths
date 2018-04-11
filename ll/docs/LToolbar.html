@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>LToolbar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LToolbar</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The Toolbar Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LToolbar<span lang="it">.h</span>, L<span lang="it">Toolbar_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">May</span> <span lang="it">19</span>, 
+    200<span lang="it">3</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">May</span> <span lang="it">19</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LToolbar<span lang="it"> </span></tt>
+provides support for creating and managing Toolbar widgets.</p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LToolbar_ID</pre>
+      <pre>LToolbar_<tt><span lang="it">CANT_CREATE</span></tt></pre>
+      <pre><span lang="it">#define LToolbar_MAX_TOOLTIP_TEXT</span>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LToolbarBar</pre>
+      <pre>enum tagLToolbar_TButtonStyle {
+	LToolbar_BUTTON,
+	LToolbar_SEPARATOR
+} LToolbar_TButtonStyle
+
+enum tagLToolbar_TButtonState {
+	LToolbar_ENABLED,
+	LToolbar_DISABLED
+} LToolbar_TButtonState
+
+struct tagLToolbar_TButton {
+	ui2 mBitmapIndex;
+	ui4 mItemID;
+	LToolbar_TButtonState mState;
+	LToolbar_TButtonStyle mStyle;
+	i1 mTooltipText[LToolbar_MAX_TOOLTIP_TEXT];
+} LToolbar_TButton
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LToolbar* 	LToolbar_Create 		(ui2 inNumButtons, LBitmap* inBitmap, LToolbar_TButton* inButtonArray)
+void 		LToolbar_Destroy 		(LToolbar* inToolbar)
+void 		LToolbar_SetButtonState 	(LToolbar* inToolbar, ui4 inItemID, Bool inEnabled)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="3"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui2 inNumButtons</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="3">Creates a toolbar with the 
+    specified attributes. Each button has a 16x16 pixel bitmap painted on it (unless 
+    it is a separator). InBitmap contains all the button images required by the 
+    toolbar, arranged in a rectangular array which is 16 pixels high and a 
+    multiple of 16 pixels wide. inButtonArray is a pointer to an array of 
+    LToolbar_TButton structs that has inNumButtons elements. A newly created 
+    toolbar is always visible (i.e. on top of all other toolbars present). 
+    Please note that if the style LToolbar_SEPARATOR is specified for a given 
+    button, then the mBitmapIndex and mItemID fields for that button should both 
+    be set to zero.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="3"> <tt>LToolbar*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="3"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><font face="Courier New" size="2">
+    <span lang="it">LBitmap* inBitmap</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">LToolbar_TButton* inButtonArray</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LToolbar* inToolbar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inToolbar. A toolbar should be destroyed only if not visible (unless 
+      it is the only toolbar present).</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      <font face="Courier New" size="2"><span lang="it">SetButtonState</span></font></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LToolbar* inToolbar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      Sets a button's state (enabled or disabled).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">ui4 inItemID</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">Bool inEnabled</span></font></td>
+  </tr>
+  </table>
+<hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">May</span> <span lang="it">19</span>, 200<span lang="it">3</span>: created.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

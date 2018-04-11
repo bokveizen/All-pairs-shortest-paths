@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>LGraphGen</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+    <body text="#000000" bgColor="#ffffff">
+        <h1>LGraphGen</h1>
+        <table cellSpacing="1" cellPadding="2" width="100%" border="0">
+            <tr>
+                <td bgColor="#e6e6e6"><b>Description</b></td>
+                <td bgColor="#e6e6e6">Graph generators and utilities related to graphs.</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Files</b></td>
+                <td bgColor="#e6e6e6"><tt>LGraphGen.h, LGraphGen.c</tt></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Author</b></td>
+                <td bgColor="#e6e6e6"><A href="mailto:thepomy@tin.it">Stefano Emiliozzi</A></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Created</b></td>
+                <td bgColor="#e6e6e6">Feb 19, 2003</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Last updated</b></td>
+                <td bgColor="#e6e6e6">May 15, 2003</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Contents</h2>
+        <ul>
+            <li>
+                <A href="#intro">Introduction</A>
+            <li>
+                <A href="#interface">Interface</A>
+            <li>
+                <A href="#apiref">API reference</A>
+            <li>
+                <A href="#history">Revision history</A></li></ul>
+        <hr>
+        <h2><b><a name="intro"></a>Introduction</b></h2>
+        This component is a collection of utilities useful in the manipulation of 
+        graphs.
+        <p>
+            <hr>
+            <h2><b><a name="interface"></a>Interface</b></h2>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Functions</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LGraph* LGraphGen_RandomNM(ui4 n, ui4 m, i4 
+                            inSeed)<br>
+                            LGraph* LGraphGen_RandomUNM(ui2 n, ui4 m, i4 inSeed)<br>
+                            LGraph* LGraphGen_RandomNP(ui2 n, f4 p, i4 inSeed)<br>
+                            LGraph* LGraphGen_RandomUNP(ui2 n, f4 p, i4 inSeed)<br>
+                            LGraph* LGraphGen_RandomGrid(ui2 n, Bool inDirected)<br>
+							LGraph* LGraphGen_RandomClustered(ui2 n, ui2 inC, f4 inPc, f4 inPi, ui4 inSeed, Bool inDirected)<br>
+                            LEdgeInfo* LGraphGen_RndEdgeInfoUI4(LGraph* inGraph, ui4 inA, ui4 inB, i4 inSeed)<br>
+                            void LGraphGen_AddCycle(LGraph* inGraph)<br>
+                            Bool LGraphGen_LoadDimacs(i1* inPathName, LGraph** outGraph, LEdgeInfo** 
+                            outEdgeInfo)<br>
+                            Bool LGraphGen_SaveDimacs(i1* inPathName, LGraph* inGraph, LEdgeInfo* 
+                            inEdgeInfo)<br>
+                            Bool LGraphGen_LoadXML(i1* inPathName, LGraph** outGraph, LEdgeInfo** 
+                            outEdgeInfo)<br>
+                            Bool LGraphGen_SaveXML(i1* inPathName, LGraph* inGraph, LEdgeInfo* 
+                            inEdgeInfo)<br>
+                            LGraph* LGraphGen_BuildShortestPathTree(LGraph* inGraph, LNodeInfo* 
+                            inPredArray, LNodeInfo** outTreeToGraph, LNodeInfo** outGraphToTree)<br>
+                            LGraph* LGraphGen_CopyGraph(LGraph* inGraph)<br>
+                            LGraph* LGraphGen_ReverseGraph(LGraph* inGraph)<br>
+                            void LGraphGen_RemoveSelfLoops(LGraph** thruGraph)</tt>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h2><a name="apiref"></a>API Reference</h2>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Function</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                    <td bgColor="#e6e6e6"><b>Returns</b></td>
+                    <td bgColor="#e6e6e6"><b>Throws</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RandomNM</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>ui2 n<br>
+                            ui4 m<br>
+                            i4 inSeed</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Creates a random directed <tt>LGraph</tt> with n nodes and m edges.</FONT></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created graph</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RandomUNM</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>ui2 n<br>
+                            ui4 m<br>
+                            i4 inSeed</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Creates a random undirected <tt>LGraph</tt> with n nodes and m edges.</FONT></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created graph</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RandomNP</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>ui2 n<br>
+                            f4 p<br>
+                            i4 inSeed</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Creates a random directed <tt>LGraph</tt> with n nodes and 
+                        approx <tt>p*n^2</tt> edges. <tt>p</tt> is the probability to have an edge
+                        between each couples of nodes.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created graph</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RandomUNP</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>ui2 n<br>
+                            f4 p<br>
+                            i4 inSeed</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Creates a random undirected <tt>LGraph</tt> with n nodes and 
+                        approx <tt>p*n(n-1)/2</tt> edges.<tt>p</tt> is the probability to have an edge
+                        between each couples of nodes.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created graph</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+				<tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RandomClustered</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>ui2 n<br>
+							ui2 inC<br>
+                            f4 inPc<br>
+							f4 inPi<br>
+							ui4 inSeed<br>
+							Bool inDirected</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns a random <tt>LGraph</tt> with <tt>inN</tt> nodes and <tt>inC</tt> 
+					strongly connected clusters. There is an edge in the same cluster with probability <tt>inPc</tt>, 
+					and there is an edge between different clusters with probability <tt>inPi</tt>. To make sure that
+					clusters are strongly connected, a cycle through all nodes in the cluster is added.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created graph</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RndEdgeInfoUI4</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph<br>
+                            ui4 inA<br>
+                            ui4 inB<br>
+                             i4 inSeed</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Creates a random <tt>LEdgeInfo</tt> associated to given <tt>inGraph</tt>
+                        with UI4 values ranging from <tt>inA</tt> to <tt>inB</tt></FONT></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LEdgeInfo*</tt></p>
+                        <p>pointer to the newly created LEdgeInfo</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_AddCycle</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph** thruGraph</tt></td>
+                    <td bgColor="#e6e6e6">Adds a cycle between all nodes in the graph. The method 
+                        modifies the passed graph.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>void</tt></p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_LoadDimacs</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>i1* inPathName<br>
+                            LGraph** outGraph<br>
+                            LEdgeInfo** outEdgeInfo</tt></td>
+                    <td bgColor="#e6e6e6">Loads a file stored in dimacs format. Puts in <tt>outGraph</tt>
+                        and in <tt>outEdgeInfo</tt> the pointers to the loaded structures.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>Bool</tt></p>
+                        <br>
+                        Returns <tt>TRUE</tt> if the parsing was succesful, <tt>FALSE</tt> otherwise.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_SaveDimacs</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>i1* inPathName<br>
+                            LGraph* inGraph<br>
+                            LEdgeInfo* inEdgeInfo</tt></td>
+                    <td bgColor="#e6e6e6">Saves a file in dimacs format, according to the contents of 
+                        passed <tt>inGraph</tt> and <tt>inEdgeInfo</tt>.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>Bool</tt></p>
+                        <br>
+                        Returns <tt>TRUE</tt> if the saving was succesful, <tt>FALSE</tt> otherwise.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_LoadXML</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>i1* inPathName<br>
+                            LGraph** outGraph<br>
+                            LEdgeInfo** outEdgeInfo</tt></td>
+                    <td bgColor="#e6e6e6">Loads a file stored in XML format. The file is parsed with
+                        the following <i>Document Type Definition</i>:<br>
+                        <tt>
+                        &lt;!DOCTYPE GRAPH [<br>
+                        &lt;!ELEMENT GRAPH (EDGE*)&gt;<br>
+                        &lt;!ATTLIST GRAPH<br>
+                        &nbsp; &nbsp; label CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; nodes CDATA #REQUIRED<br>
+                        &nbsp; &nbsp; edges CDATA #REQUIRED&gt;<br>
+                        &lt;!ELEMENT EDGE EMPTY&gt;<br>
+                        &lt;!ATTLIST EDGE<br>
+                        &nbsp; &nbsp; label  CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; weight CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; source CDATA #REQUIRED<br>
+                        &nbsp; &nbsp; dest   CDATA #REQUIRED&gt;<br>
+                        ]&gt;<br>
+                        </tt>
+                        The pointers to the loaded structures are in <tt>outGraph</tt>
+                        and in <tt>outEdgeInfo</tt>.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>Bool</tt></p>
+                        <br>
+                        Returns <tt>TRUE</tt> if the parsing was succesful, <tt>FALSE</tt> otherwise.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_SaveXML</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>i1* inPathName<br>
+                            LGraph* inGraph<br>
+                            LEdgeInfo* inEdgeInfo</tt></td>
+                    <td bgColor="#e6e6e6">Saves a file in XML format, according to the contents of 
+                        passed <tt>inGraph</tt> and <tt>inEdgeInfo</tt>.<br>
+                        The file is parsed with
+                        the following <i>Document Type Definition</i>:<br>
+                        <tt>
+                        &lt;!DOCTYPE GRAPH [<br>
+                        &lt;!ELEMENT GRAPH (EDGE*)&gt;<br>
+                        &lt;!ATTLIST GRAPH<br>
+                        &nbsp; &nbsp; label CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; nodes CDATA #REQUIRED<br>
+                        &nbsp; &nbsp; edges CDATA #REQUIRED&gt;<br>
+                        &lt;!ELEMENT EDGE EMPTY&gt;<br>
+                        &lt;!ATTLIST EDGE<br>
+                        &nbsp; &nbsp; label  CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; weight CDATA #IMPLIED<br>
+                        &nbsp; &nbsp; source CDATA #REQUIRED<br>
+                        &nbsp; &nbsp; dest   CDATA #REQUIRED&gt;<br>
+                        ]&gt;
+                        </tt>
+                    </td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>Bool</tt></p>
+                        <br>
+                        Returns <tt>TRUE</tt> if the saving was succesful, <tt>FALSE</tt> otherwise.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_BuildShortestPathTree</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph<br>
+                            LNodeInfo* inPredArray<br>
+                            LNodeInfo** outTreeToGraph<br>
+                            LNodeInfo** outGraphToTree</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Builds a shortest path tree based on source <tt>inGraph</tt> and 
+                        passed <tt>inPredArray</tt>. If different from <tt>NULL</tt>, after the call of 
+                        the method, in <tt>outTreeToGraph</tt> there's the mapping <tt>Tree-&gt;Graph</tt> 
+                        while in <tt>outGraphToTree</tt> there's the mapping <tt>Graph-&gt;Tree</tt>.<br>
+                        <i>Note
+                        that the <tt>LNodeInfo_New</tt>&nbsp;for both <tt>outTreeToGraph</tt> and
+                        <tt>outGraphToTree</tt> is called <b>INSIDE</b> this function. In order to 
+                        avoid memory leaks, user <b>MUST NOT</b> call the <tt>LNodeInfo_New</tt>.</i></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>inGraph*</tt></p>
+                        <br>
+                        Pointer to the created shortest path tree
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_CopyGraph</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph</tt></td>
+                    <td bgColor="#e6e6e6">Returns a graph that is the copy of <tt>inGraph</tt>. The 
+                        copy is only topological. Caller is responsible of the deallocation of returned <tt>
+                            LGraph*</tt></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>inGraph*</tt></p>
+                        <br>
+                        Pointer to the created graph
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_ReverseGraph</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph</tt></td>
+                    <td bgColor="#e6e6e6">Returns a graph that is the reversed of <tt>inGraph</tt>. The 
+                        reversal is only topological. Caller is responsible of the deallocation of 
+                        returned <tt>LGraph*</tt>. If <tt>inGraph</tt> is not directed, the function 
+                        returns <tt>NULL</tt> since the operation requested has meaning only for 
+                        undirected graphs.</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>inGraph*</tt></p>
+                        <br>
+                        Pointer to the created graph
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraphGen_RemoveSelfLoops</tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph** thruGraph</tt></td>
+                    <td bgColor="#e6e6e6">Removes all the self loops in passed <tt>thruGraph</tt>. The 
+                        method <i>does side-effect</i>. It works on both undirected and directed graphs</td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>void</tt></p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>-</tt></td>
+                </tr>
+            </table>
+        <p>
+            <hr>
+            <h2><a name="history"></a>Revision history</h2>
+            <ul>
+                <li>
+                    Feb 19, 2003: created. 
+                </li>
+                <li>
+                    Mar 05, 2003: Added <tt>BuildShortestPathTree</tt>
+                </li>
+                <li>
+                    Apr 14, 2003: Added <tt>LoadXML</tt>, <tt>SaveXML</tt>
+                </li>
+                <li>
+                    May 10, 2003: Added <tt>RemovesSelfLoops</tt>
+                </li>
+                <li>
+                    May 14, 2003: Changed <tt>inSeed</tt> from <tt>ui4</tt> to <tt>i4</tt>.<br>
+                    Added <tt>inSeed</tt> to <tt>RndEdgeInfoUI4</tt>
+                </li>
+
+            </ul>
+            <hr>
+        <p align="right"><font size="-1"><A href="../index.html">Leonardo Developer Documentation</A><br>
+                Last updated: May 15, 2003</font></p>
+    </body>
+</html>

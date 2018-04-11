@@ -1,0 +1,773 @@
+<?xml version="1.0"?>
+<!DOCTYPE GRAPH [
+<!ELEMENT GRAPH (EDGE*)>
+<!ATTLIST GRAPH
+	label CDATA #IMPLIED
+	nodes CDATA #REQUIRED
+	edges CDATA #REQUIRED>
+<!ELEMENT EDGE EMPTY>
+<!ATTLIST EDGE
+	label  CDATA #IMPLIED
+	weight CDATA #IMPLIED
+	source CDATA #REQUIRED
+	dest   CDATA #REQUIRED>
+]>
+<!--
+**********************************************************
+SDTS2XML Conveter, written by Stefano Emiliozzi (c)2003
+Input file  <- UT.xyz
+Output file -> UT.xml
+Scale [1:2000000]
+**********************************************************
+-->
+<GRAPH label="UT.xml" nodes="269" edges="742" >
+	<EDGE source="0" dest="1" weight="5128" label="I 84" />
+	<EDGE source="1" dest="0" weight="5128" label="I 84" />
+	<EDGE source="2" dest="3" weight="21889" label="I 84" />
+	<EDGE source="3" dest="2" weight="21889" label="I 84" />
+	<EDGE source="4" dest="5" weight="4435" label="SR30" />
+	<EDGE source="5" dest="4" weight="4435" label="SR30" />
+	<EDGE source="6" dest="7" weight="14699" label="I 15" />
+	<EDGE source="7" dest="6" weight="14699" label="I 15" />
+	<EDGE source="7" dest="8" weight="2618" label="SR13" />
+	<EDGE source="8" dest="7" weight="2618" label="SR13" />
+	<EDGE source="9" dest="8" weight="1042" label="SR13" />
+	<EDGE source="8" dest="9" weight="1042" label="SR13" />
+	<EDGE source="10" dest="9" weight="2017" label="SR13" />
+	<EDGE source="9" dest="10" weight="2017" label="SR13" />
+	<EDGE source="11" dest="10" weight="2569" label="US91" />
+	<EDGE source="10" dest="11" weight="2569" label="US91" />
+	<EDGE source="9" dest="12" weight="3755" />
+	<EDGE source="12" dest="9" weight="3755" />
+	<EDGE source="10" dest="12" weight="3145" label="US89" />
+	<EDGE source="12" dest="10" weight="3145" label="US89" />
+	<EDGE source="13" dest="14" weight="14274" label="SR16" />
+	<EDGE source="14" dest="13" weight="14274" label="SR16" />
+	<EDGE source="15" dest="16" weight="2610" label="SR39" />
+	<EDGE source="16" dest="15" weight="2610" label="SR39" />
+	<EDGE source="17" dest="18" weight="1526" label="I 15" />
+	<EDGE source="18" dest="17" weight="1526" label="I 15" />
+	<EDGE source="18" dest="19" weight="7624" label="I 215" />
+	<EDGE source="19" dest="18" weight="7624" label="I 215" />
+	<EDGE source="19" dest="20" weight="3475" />
+	<EDGE source="20" dest="19" weight="3475" />
+	<EDGE source="21" dest="19" weight="986" />
+	<EDGE source="19" dest="21" weight="986" />
+	<EDGE source="22" dest="17" weight="4396" label="I 15" />
+	<EDGE source="17" dest="22" weight="4396" label="I 15" />
+	<EDGE source="21" dest="22" weight="2283" />
+	<EDGE source="22" dest="21" weight="2283" />
+	<EDGE source="19" dest="23" weight="348" label="I 215" />
+	<EDGE source="23" dest="19" weight="348" label="I 215" />
+	<EDGE source="22" dest="24" weight="1141" />
+	<EDGE source="24" dest="22" weight="1141" />
+	<EDGE source="25" dest="21" weight="312" label="SR68" />
+	<EDGE source="21" dest="25" weight="312" label="SR68" />
+	<EDGE source="23" dest="25" weight="830" label="I 80" />
+	<EDGE source="25" dest="23" weight="830" label="I 80" />
+	<EDGE source="26" dest="22" weight="715" label="I 15" />
+	<EDGE source="22" dest="26" weight="715" label="I 15" />
+	<EDGE source="25" dest="26" weight="2319" label="I 80" />
+	<EDGE source="26" dest="25" weight="2319" label="I 80" />
+	<EDGE source="27" dest="28" weight="2387" label="SR202" />
+	<EDGE source="28" dest="27" weight="2387" label="SR202" />
+	<EDGE source="29" dest="24" weight="1279" label="US89" />
+	<EDGE source="24" dest="29" weight="1279" label="US89" />
+	<EDGE source="29" dest="30" weight="1141" />
+	<EDGE source="30" dest="29" weight="1141" />
+	<EDGE source="30" dest="26" weight="677" label="I 15" />
+	<EDGE source="26" dest="30" weight="677" label="I 15" />
+	<EDGE source="31" dest="30" weight="1168" label="I 15" />
+	<EDGE source="30" dest="31" weight="1168" label="I 15" />
+	<EDGE source="25" dest="32" weight="3725" label="SR68" />
+	<EDGE source="32" dest="25" weight="3725" label="SR68" />
+	<EDGE source="33" dest="32" weight="987" label="SR201" />
+	<EDGE source="32" dest="33" weight="987" label="SR201" />
+	<EDGE source="34" dest="31" weight="1633" label="I 15" />
+	<EDGE source="31" dest="34" weight="1633" label="I 15" />
+	<EDGE source="35" dest="34" weight="676" label="I 15" />
+	<EDGE source="34" dest="35" weight="676" label="I 15" />
+	<EDGE source="36" dest="35" weight="1243" label="I 80" />
+	<EDGE source="35" dest="36" weight="1243" label="I 80" />
+	<EDGE source="36" dest="37" weight="1452" label="I 80" />
+	<EDGE source="37" dest="36" weight="1452" label="I 80" />
+	<EDGE source="38" dest="39" weight="5023" label="SR36" />
+	<EDGE source="39" dest="38" weight="5023" label="SR36" />
+	<EDGE source="40" dest="41" weight="792" label="I 80" />
+	<EDGE source="41" dest="40" weight="792" label="I 80" />
+	<EDGE source="42" dest="32" weight="6785" label="SR68" />
+	<EDGE source="32" dest="42" weight="6785" label="SR68" />
+	<EDGE source="43" dest="42" weight="2749" label="I 215" />
+	<EDGE source="42" dest="43" weight="2749" label="I 215" />
+	<EDGE source="44" dest="36" weight="7172" label="US89" />
+	<EDGE source="36" dest="44" weight="7172" label="US89" />
+	<EDGE source="44" dest="43" weight="1612" label="I 215" />
+	<EDGE source="43" dest="44" weight="1612" label="I 215" />
+	<EDGE source="45" dest="46" weight="2644" label="SR71" />
+	<EDGE source="46" dest="45" weight="2644" label="SR71" />
+	<EDGE source="44" dest="45" weight="1864" label="I 215" />
+	<EDGE source="45" dest="44" weight="1864" label="I 215" />
+	<EDGE source="46" dest="47" weight="4039" />
+	<EDGE source="47" dest="46" weight="4039" />
+	<EDGE source="45" dest="47" weight="2750" label="I 215" />
+	<EDGE source="47" dest="45" weight="2750" label="I 215" />
+	<EDGE source="48" dest="49" weight="2522" label="SR224" />
+	<EDGE source="49" dest="48" weight="2522" label="SR224" />
+	<EDGE source="43" dest="50" weight="2159" label="I 15" />
+	<EDGE source="50" dest="43" weight="2159" label="I 15" />
+	<EDGE source="51" dest="44" weight="1790" label="US89" />
+	<EDGE source="44" dest="51" weight="1790" label="US89" />
+	<EDGE source="50" dest="51" weight="1087" label="SR48" />
+	<EDGE source="51" dest="50" weight="1087" label="SR48" />
+	<EDGE source="52" dest="45" weight="1051" label="SR71" />
+	<EDGE source="45" dest="52" weight="1051" label="SR71" />
+	<EDGE source="53" dest="47" weight="1048" />
+	<EDGE source="47" dest="53" weight="1048" />
+	<EDGE source="52" dest="53" weight="2698" label="SR48" />
+	<EDGE source="53" dest="52" weight="2698" label="SR48" />
+	<EDGE source="54" dest="50" weight="3065" label="SR48" />
+	<EDGE source="50" dest="54" weight="3065" label="SR48" />
+	<EDGE source="42" dest="54" weight="2986" label="SR68" />
+	<EDGE source="54" dest="42" weight="2986" label="SR68" />
+	<EDGE source="55" dest="54" weight="11689" label="SR48" />
+	<EDGE source="54" dest="55" weight="11689" label="SR48" />
+	<EDGE source="56" dest="51" weight="1861" label="US89" />
+	<EDGE source="51" dest="56" weight="1861" label="US89" />
+	<EDGE source="57" dest="56" weight="1034" />
+	<EDGE source="56" dest="57" weight="1034" />
+	<EDGE source="58" dest="56" weight="969" label="US89" />
+	<EDGE source="56" dest="58" weight="969" label="US89" />
+	<EDGE source="59" dest="52" weight="3635" label="SR71" />
+	<EDGE source="52" dest="59" weight="3635" label="SR71" />
+	<EDGE source="58" dest="59" weight="1603" label="SR209" />
+	<EDGE source="59" dest="58" weight="1603" label="SR209" />
+	<EDGE source="60" dest="54" weight="7443" label="SR68" />
+	<EDGE source="54" dest="60" weight="7443" label="SR68" />
+	<EDGE source="61" dest="58" weight="4574" label="US89" />
+	<EDGE source="58" dest="61" weight="4574" label="US89" />
+	<EDGE source="61" dest="57" weight="5674" label="I 15" />
+	<EDGE source="57" dest="61" weight="5674" label="I 15" />
+	<EDGE source="60" dest="61" weight="4098" label="SR71" />
+	<EDGE source="61" dest="60" weight="4098" label="SR71" />
+	<EDGE source="62" dest="63" weight="4987" label="SR36" />
+	<EDGE source="63" dest="62" weight="4987" label="SR36" />
+	<EDGE source="64" dest="65" weight="3949" label="SR52" />
+	<EDGE source="65" dest="64" weight="3949" label="SR52" />
+	<EDGE source="66" dest="64" weight="2732" label="SR52" />
+	<EDGE source="64" dest="66" weight="2732" label="SR52" />
+	<EDGE source="67" dest="68" weight="1338" label="SR214" />
+	<EDGE source="68" dest="67" weight="1338" label="SR214" />
+	<EDGE source="69" dest="70" weight="1133" />
+	<EDGE source="70" dest="69" weight="1133" />
+	<EDGE source="71" dest="69" weight="2488" />
+	<EDGE source="69" dest="71" weight="2488" />
+	<EDGE source="72" dest="73" weight="1046" label="SR10" />
+	<EDGE source="73" dest="72" weight="1046" label="SR10" />
+	<EDGE source="74" dest="75" weight="4583" label="US50" />
+	<EDGE source="75" dest="74" weight="4583" label="US50" />
+	<EDGE source="76" dest="75" weight="7000" label="I 15" />
+	<EDGE source="75" dest="76" weight="7000" label="I 15" />
+	<EDGE source="77" dest="78" weight="962" label="I 70" />
+	<EDGE source="78" dest="77" weight="962" label="I 70" />
+	<EDGE source="79" dest="80" weight="3258" label="I 15" />
+	<EDGE source="80" dest="79" weight="3258" label="I 15" />
+	<EDGE source="81" dest="82" weight="1486" />
+	<EDGE source="82" dest="81" weight="1486" />
+	<EDGE source="83" dest="84" weight="17224" label="SR21" />
+	<EDGE source="84" dest="83" weight="17224" label="SR21" />
+	<EDGE source="85" dest="86" weight="431" label="SR143" />
+	<EDGE source="86" dest="85" weight="431" label="SR143" />
+	<EDGE source="87" dest="85" weight="1238" label="SR143" />
+	<EDGE source="85" dest="87" weight="1238" label="SR143" />
+	<EDGE source="88" dest="89" weight="1783" label="I 15" />
+	<EDGE source="89" dest="88" weight="1783" label="I 15" />
+	<EDGE source="90" dest="91" weight="9907" label="SR17" />
+	<EDGE source="91" dest="90" weight="9907" label="SR17" />
+	<EDGE source="92" dest="93" weight="964" label="SR18" />
+	<EDGE source="93" dest="92" weight="964" label="SR18" />
+	<EDGE source="94" dest="92" weight="3602" />
+	<EDGE source="92" dest="94" weight="3602" />
+	<EDGE source="95" dest="96" weight="19757" label="US191" />
+	<EDGE source="96" dest="95" weight="19757" label="US191" />
+	<EDGE source="97" dest="96" weight="57311" label="SR262" />
+	<EDGE source="96" dest="97" weight="57311" label="SR262" />
+	<EDGE source="98" dest="95" weight="24147" label="US191" />
+	<EDGE source="95" dest="98" weight="24147" label="US191" />
+	<EDGE source="99" dest="100" weight="44948" label="SR95" />
+	<EDGE source="100" dest="99" weight="44948" label="SR95" />
+	<EDGE source="99" dest="101" weight="32580" label="US191" />
+	<EDGE source="101" dest="99" weight="32580" label="US191" />
+	<EDGE source="102" dest="101" weight="26102" label="US666" />
+	<EDGE source="101" dest="102" weight="26102" label="US666" />
+	<EDGE source="101" dest="103" weight="39182" label="US191" />
+	<EDGE source="103" dest="101" weight="39182" label="US191" />
+	<EDGE source="104" dest="103" weight="31530" label="SR46" />
+	<EDGE source="103" dest="104" weight="31530" label="SR46" />
+	<EDGE source="103" dest="105" weight="73786" label="US191" />
+	<EDGE source="105" dest="103" weight="73786" label="US191" />
+	<EDGE source="106" dest="105" weight="35674" label="I 70" />
+	<EDGE source="105" dest="106" weight="35674" label="I 70" />
+	<EDGE source="106" dest="107" weight="8119" />
+	<EDGE source="107" dest="106" weight="8119" />
+	<EDGE source="106" dest="108" weight="13237" label="I 70" />
+	<EDGE source="108" dest="106" weight="13237" label="I 70" />
+	<EDGE source="108" dest="109" weight="25164" label="I 70" />
+	<EDGE source="109" dest="108" weight="25164" label="I 70" />
+	<EDGE source="110" dest="111" weight="34032" label="SR95" />
+	<EDGE source="111" dest="110" weight="34032" label="SR95" />
+	<EDGE source="110" dest="112" weight="79154" label="SR95" />
+	<EDGE source="112" dest="110" weight="79154" label="SR95" />
+	<EDGE source="100" dest="112" weight="12056" label="SR95" />
+	<EDGE source="112" dest="100" weight="12056" label="SR95" />
+	<EDGE source="113" dest="112" weight="68956" label="SR276" />
+	<EDGE source="112" dest="113" weight="68956" label="SR276" />
+	<EDGE source="114" dest="100" weight="39606" label="SR261" />
+	<EDGE source="100" dest="114" weight="39606" label="SR261" />
+	<EDGE source="114" dest="95" weight="24899" label="US163" />
+	<EDGE source="95" dest="114" weight="24899" label="US163" />
+	<EDGE source="115" dest="110" weight="36748" label="SR276" />
+	<EDGE source="110" dest="115" weight="36748" label="SR276" />
+	<EDGE source="116" dest="105" weight="39177" label="I 70" />
+	<EDGE source="105" dest="116" weight="39177" label="I 70" />
+	<EDGE source="116" dest="117" weight="12404" label="I 70" />
+	<EDGE source="117" dest="116" weight="12404" label="I 70" />
+	<EDGE source="111" dest="117" weight="58300" label="SR24" />
+	<EDGE source="117" dest="111" weight="58300" label="SR24" />
+	<EDGE source="118" dest="119" weight="2162" label="I 70" />
+	<EDGE source="119" dest="118" weight="2162" label="I 70" />
+	<EDGE source="117" dest="118" weight="89006" label="I 70" />
+	<EDGE source="118" dest="117" weight="89006" label="I 70" />
+	<EDGE source="120" dest="119" weight="47156" label="SR72" />
+	<EDGE source="119" dest="120" weight="47156" label="SR72" />
+	<EDGE source="121" dest="120" weight="17180" label="SR24" />
+	<EDGE source="120" dest="121" weight="17180" label="SR24" />
+	<EDGE source="121" dest="111" weight="75484" label="SR24" />
+	<EDGE source="111" dest="121" weight="75484" label="SR24" />
+	<EDGE source="121" dest="122" weight="115585" label="SR12" />
+	<EDGE source="122" dest="121" weight="115585" label="SR12" />
+	<EDGE source="122" dest="123" weight="37011" label="SR12" />
+	<EDGE source="123" dest="122" weight="37011" label="SR12" />
+	<EDGE source="124" dest="125" weight="39432" label="SR62" />
+	<EDGE source="125" dest="124" weight="39432" label="SR62" />
+	<EDGE source="120" dest="125" weight="30533" label="SR24" />
+	<EDGE source="125" dest="120" weight="30533" label="SR24" />
+	<EDGE source="125" dest="126" weight="21942" label="SR24" />
+	<EDGE source="126" dest="125" weight="21942" label="SR24" />
+	<EDGE source="126" dest="127" weight="8145" label="SR24" />
+	<EDGE source="127" dest="126" weight="8145" label="SR24" />
+	<EDGE source="128" dest="129" weight="1109" label="SR119" />
+	<EDGE source="129" dest="128" weight="1109" label="SR119" />
+	<EDGE source="129" dest="126" weight="13801" label="SR119" />
+	<EDGE source="126" dest="129" weight="13801" label="SR119" />
+	<EDGE source="127" dest="130" weight="2213" label="US89" />
+	<EDGE source="130" dest="127" weight="2213" label="US89" />
+	<EDGE source="130" dest="78" weight="1393" label="US89" />
+	<EDGE source="78" dest="130" weight="1393" label="US89" />
+	<EDGE source="131" dest="132" weight="736" label="I 70" />
+	<EDGE source="132" dest="131" weight="736" label="I 70" />
+	<EDGE source="132" dest="77" weight="19199" label="I 70" />
+	<EDGE source="77" dest="132" weight="19199" label="I 70" />
+	<EDGE source="128" dest="133" weight="23921" label="US89" />
+	<EDGE source="133" dest="128" weight="23921" label="US89" />
+	<EDGE source="133" dest="134" weight="935" />
+	<EDGE source="134" dest="133" weight="935" />
+	<EDGE source="135" dest="81" weight="51873" label="SR153" />
+	<EDGE source="81" dest="135" weight="51873" label="SR153" />
+	<EDGE source="124" dest="136" weight="16700" label="SR62" />
+	<EDGE source="136" dest="124" weight="16700" label="SR62" />
+	<EDGE source="137" dest="136" weight="29549" label="US89" />
+	<EDGE source="136" dest="137" weight="29549" label="US89" />
+	<EDGE source="137" dest="138" weight="26916" label="SR20" />
+	<EDGE source="138" dest="137" weight="26916" label="SR20" />
+	<EDGE source="139" dest="137" weight="21841" label="US89" />
+	<EDGE source="137" dest="139" weight="21841" label="US89" />
+	<EDGE source="123" dest="139" weight="20453" label="SR12" />
+	<EDGE source="139" dest="123" weight="20453" label="SR12" />
+	<EDGE source="140" dest="139" weight="26081" label="US89" />
+	<EDGE source="139" dest="140" weight="26081" label="US89" />
+	<EDGE source="140" dest="141" weight="30359" label="SR14" />
+	<EDGE source="141" dest="140" weight="30359" label="SR14" />
+	<EDGE source="140" dest="142" weight="29310" label="US89" />
+	<EDGE source="142" dest="140" weight="29310" label="US89" />
+	<EDGE source="143" dest="144" weight="3471" label="US89A" />
+	<EDGE source="144" dest="143" weight="3471" label="US89A" />
+	<EDGE source="145" dest="144" weight="94133" label="US89" />
+	<EDGE source="144" dest="145" weight="94133" label="US89" />
+	<EDGE source="146" dest="147" weight="8441" label="I 15" />
+	<EDGE source="147" dest="146" weight="8441" label="I 15" />
+	<EDGE source="147" dest="94" weight="3574" label="I 15" />
+	<EDGE source="94" dest="147" weight="3574" label="I 15" />
+	<EDGE source="147" dest="92" weight="2790" label="SR18" />
+	<EDGE source="92" dest="147" weight="2790" label="SR18" />
+	<EDGE source="94" dest="148" weight="9649" label="I 15" />
+	<EDGE source="148" dest="94" weight="9649" label="I 15" />
+	<EDGE source="149" dest="148" weight="15341" label="SR9" />
+	<EDGE source="148" dest="149" weight="15341" label="SR9" />
+	<EDGE source="90" dest="149" weight="2598" label="SR9" />
+	<EDGE source="149" dest="90" weight="2598" label="SR9" />
+	<EDGE source="150" dest="149" weight="32284" label="SR59" />
+	<EDGE source="149" dest="150" weight="32284" label="SR59" />
+	<EDGE source="142" dest="90" weight="60751" label="SR9" />
+	<EDGE source="90" dest="142" weight="60751" label="SR9" />
+	<EDGE source="144" dest="142" weight="23501" label="US89" />
+	<EDGE source="142" dest="144" weight="23501" label="US89" />
+	<EDGE source="148" dest="91" weight="15079" label="I 15" />
+	<EDGE source="91" dest="148" weight="15079" label="I 15" />
+	<EDGE source="151" dest="89" weight="1441" label="SR56" />
+	<EDGE source="89" dest="151" weight="1441" label="SR56" />
+	<EDGE source="91" dest="88" weight="41140" label="I 15" />
+	<EDGE source="88" dest="91" weight="41140" label="I 15" />
+	<EDGE source="88" dest="152" weight="2281" label="SR130" />
+	<EDGE source="152" dest="88" weight="2281" label="SR130" />
+	<EDGE source="152" dest="151" weight="429" label="SR130" />
+	<EDGE source="151" dest="152" weight="429" label="SR130" />
+	<EDGE source="153" dest="154" weight="4276" label="SR56" />
+	<EDGE source="154" dest="153" weight="4276" label="SR56" />
+	<EDGE source="153" dest="89" weight="2756" label="SR56" />
+	<EDGE source="89" dest="153" weight="2756" label="SR56" />
+	<EDGE source="154" dest="155" weight="45875" label="SR56" />
+	<EDGE source="155" dest="154" weight="45875" label="SR56" />
+	<EDGE source="155" dest="156" weight="37420" label="SR56" />
+	<EDGE source="156" dest="155" weight="37420" label="SR56" />
+	<EDGE source="93" dest="155" weight="62635" label="SR18" />
+	<EDGE source="155" dest="93" weight="62635" label="SR18" />
+	<EDGE source="141" dest="152" weight="25357" label="SR14" />
+	<EDGE source="152" dest="141" weight="25357" label="SR14" />
+	<EDGE source="141" dest="87" weight="29401" label="SR143" />
+	<EDGE source="87" dest="141" weight="29401" label="SR143" />
+	<EDGE source="85" dest="157" weight="7189" />
+	<EDGE source="157" dest="85" weight="7189" />
+	<EDGE source="158" dest="87" weight="11497" />
+	<EDGE source="87" dest="158" weight="11497" />
+	<EDGE source="89" dest="159" weight="4452" label="I 15" />
+	<EDGE source="159" dest="89" weight="4452" label="I 15" />
+	<EDGE source="159" dest="158" weight="11885" label="I 15" />
+	<EDGE source="158" dest="159" weight="11885" label="I 15" />
+	<EDGE source="151" dest="159" weight="4324" label="SR130" />
+	<EDGE source="159" dest="151" weight="4324" label="SR130" />
+	<EDGE source="158" dest="86" weight="11373" label="I 15" />
+	<EDGE source="86" dest="158" weight="11373" label="I 15" />
+	<EDGE source="86" dest="157" weight="5310" label="I 15" />
+	<EDGE source="157" dest="86" weight="5310" label="I 15" />
+	<EDGE source="157" dest="138" weight="17588" label="I 15" />
+	<EDGE source="138" dest="157" weight="17588" label="I 15" />
+	<EDGE source="81" dest="160" weight="952" label="SR21" />
+	<EDGE source="160" dest="81" weight="952" label="SR21" />
+	<EDGE source="160" dest="161" weight="1448" label="I 15" />
+	<EDGE source="161" dest="160" weight="1448" label="I 15" />
+	<EDGE source="138" dest="162" weight="15508" label="I 15" />
+	<EDGE source="162" dest="138" weight="15508" label="I 15" />
+	<EDGE source="162" dest="160" weight="3681" label="I 15" />
+	<EDGE source="160" dest="162" weight="3681" label="I 15" />
+	<EDGE source="162" dest="81" weight="3840" />
+	<EDGE source="81" dest="162" weight="3840" />
+	<EDGE source="82" dest="161" weight="954" label="SR16" />
+	<EDGE source="161" dest="82" weight="954" label="SR16" />
+	<EDGE source="161" dest="163" weight="10584" label="I 15" />
+	<EDGE source="163" dest="161" weight="10584" label="I 15" />
+	<EDGE source="164" dest="80" weight="4161" />
+	<EDGE source="80" dest="164" weight="4161" />
+	<EDGE source="164" dest="79" weight="4534" label="I 70" />
+	<EDGE source="79" dest="164" weight="4534" label="I 70" />
+	<EDGE source="160" dest="83" weight="25241" label="SR21" />
+	<EDGE source="83" dest="160" weight="25241" label="SR21" />
+	<EDGE source="159" dest="83" weight="49013" label="SR130" />
+	<EDGE source="83" dest="159" weight="49013" label="SR130" />
+	<EDGE source="84" dest="165" weight="111722" label="SR21" />
+	<EDGE source="165" dest="84" weight="111722" label="SR21" />
+	<EDGE source="166" dest="167" weight="128369" label="US6" />
+	<EDGE source="167" dest="166" weight="128369" label="US6" />
+	<EDGE source="163" dest="79" weight="15648" label="I 15" />
+	<EDGE source="79" dest="163" weight="15648" label="I 15" />
+	<EDGE source="134" dest="164" weight="29341" label="I 70" />
+	<EDGE source="164" dest="134" weight="29341" label="I 70" />
+	<EDGE source="129" dest="130" weight="12496" label="US89" />
+	<EDGE source="130" dest="129" weight="12496" label="US89" />
+	<EDGE source="78" dest="168" weight="9413" label="US89" />
+	<EDGE source="168" dest="78" weight="9413" label="US89" />
+	<EDGE source="168" dest="169" weight="1394" label="US50" />
+	<EDGE source="169" dest="168" weight="1394" label="US50" />
+	<EDGE source="170" dest="169" weight="2440" label="US50" />
+	<EDGE source="169" dest="170" weight="2440" label="US50" />
+	<EDGE source="78" dest="170" weight="10526" label="I 70" />
+	<EDGE source="170" dest="78" weight="10526" label="I 70" />
+	<EDGE source="119" dest="170" weight="49305" label="I 70" />
+	<EDGE source="170" dest="119" weight="49305" label="I 70" />
+	<EDGE source="118" dest="171" weight="47181" label="SR10" />
+	<EDGE source="171" dest="118" weight="47181" label="SR10" />
+	<EDGE source="171" dest="172" weight="2950" label="SR57" />
+	<EDGE source="172" dest="171" weight="2950" label="SR57" />
+	<EDGE source="171" dest="173" weight="4187" label="SR10" />
+	<EDGE source="173" dest="171" weight="4187" label="SR10" />
+	<EDGE source="172" dest="173" weight="2283" label="SR29" />
+	<EDGE source="173" dest="172" weight="2283" label="SR29" />
+	<EDGE source="173" dest="174" weight="355" label="SR29" />
+	<EDGE source="174" dest="173" weight="355" label="SR29" />
+	<EDGE source="174" dest="72" weight="38842" label="SR10" />
+	<EDGE source="72" dest="174" weight="38842" label="SR10" />
+	<EDGE source="175" dest="72" weight="1815" label="US6" />
+	<EDGE source="72" dest="175" weight="1815" label="US6" />
+	<EDGE source="175" dest="73" weight="2399" />
+	<EDGE source="73" dest="175" weight="2399" />
+	<EDGE source="72" dest="176" weight="6596" label="US6" />
+	<EDGE source="176" dest="72" weight="6596" label="US6" />
+	<EDGE source="73" dest="176" weight="5765" />
+	<EDGE source="176" dest="73" weight="5765" />
+	<EDGE source="176" dest="177" weight="8688" label="US6" />
+	<EDGE source="177" dest="176" weight="8688" label="US6" />
+	<EDGE source="175" dest="116" weight="78392" label="US6" />
+	<EDGE source="116" dest="175" weight="78392" label="US6" />
+	<EDGE source="172" dest="178" weight="25552" label="SR29" />
+	<EDGE source="178" dest="172" weight="25552" label="SR29" />
+	<EDGE source="179" dest="180" weight="5209" label="US89" />
+	<EDGE source="180" dest="179" weight="5209" label="US89" />
+	<EDGE source="180" dest="181" weight="15391" label="US89" />
+	<EDGE source="181" dest="180" weight="15391" label="US89" />
+	<EDGE source="182" dest="181" weight="11710" label="SR116" />
+	<EDGE source="181" dest="182" weight="11710" label="SR116" />
+	<EDGE source="180" dest="182" weight="10707" label="SR132" />
+	<EDGE source="182" dest="180" weight="10707" label="SR132" />
+	<EDGE source="183" dest="69" weight="1484" label="SR132" />
+	<EDGE source="69" dest="183" weight="1484" label="SR132" />
+	<EDGE source="184" dest="71" weight="21422" label="I 15" />
+	<EDGE source="71" dest="184" weight="21422" label="I 15" />
+	<EDGE source="184" dest="185" weight="12475" label="SR78" />
+	<EDGE source="185" dest="184" weight="12475" label="SR78" />
+	<EDGE source="186" dest="185" weight="39072" label="SR28" />
+	<EDGE source="185" dest="186" weight="39072" label="SR28" />
+	<EDGE source="169" dest="186" weight="18358" label="US89" />
+	<EDGE source="186" dest="169" weight="18358" label="US89" />
+	<EDGE source="168" dest="187" weight="37710" label="US50" />
+	<EDGE source="187" dest="168" weight="37710" label="US50" />
+	<EDGE source="75" dest="187" weight="13695" label="I 15" />
+	<EDGE source="187" dest="75" weight="13695" label="I 15" />
+	<EDGE source="76" dest="74" weight="2528" />
+	<EDGE source="74" dest="76" weight="2528" />
+	<EDGE source="188" dest="189" weight="1672" />
+	<EDGE source="189" dest="188" weight="1672" />
+	<EDGE source="188" dest="190" weight="1429" label="SR100" />
+	<EDGE source="190" dest="188" weight="1429" label="SR100" />
+	<EDGE source="189" dest="76" weight="8781" label="I 15" />
+	<EDGE source="76" dest="189" weight="8781" label="I 15" />
+	<EDGE source="191" dest="192" weight="6927" label="I 15" />
+	<EDGE source="192" dest="191" weight="6927" label="I 15" />
+	<EDGE source="193" dest="191" weight="9413" label="SR133" />
+	<EDGE source="191" dest="193" weight="9413" label="SR133" />
+	<EDGE source="186" dest="179" weight="29449" label="US89" />
+	<EDGE source="179" dest="186" weight="29449" label="US89" />
+	<EDGE source="181" dest="194" weight="43831" label="US89" />
+	<EDGE source="194" dest="181" weight="43831" label="US89" />
+	<EDGE source="177" dest="194" weight="63157" label="US6" />
+	<EDGE source="194" dest="177" weight="63157" label="US6" />
+	<EDGE source="177" dest="195" weight="57704" label="US191" />
+	<EDGE source="195" dest="177" weight="57704" label="US191" />
+	<EDGE source="196" dest="197" weight="19978" label="US189" />
+	<EDGE source="197" dest="196" weight="19978" label="US189" />
+	<EDGE source="196" dest="198" weight="34392" label="SR92" />
+	<EDGE source="198" dest="196" weight="34392" label="SR92" />
+	<EDGE source="199" dest="200" weight="6567" label="SR73" />
+	<EDGE source="200" dest="199" weight="6567" label="SR73" />
+	<EDGE source="201" dest="199" weight="2248" label="I 15" />
+	<EDGE source="199" dest="201" weight="2248" label="I 15" />
+	<EDGE source="202" dest="203" weight="1398" label="US189" />
+	<EDGE source="203" dest="202" weight="1398" label="US189" />
+	<EDGE source="203" dest="64" weight="8063" label="US89" />
+	<EDGE source="64" dest="203" weight="8063" label="US89" />
+	<EDGE source="203" dest="65" weight="7014" label="US189" />
+	<EDGE source="65" dest="203" weight="7014" label="US189" />
+	<EDGE source="65" dest="196" weight="10010" label="US189" />
+	<EDGE source="196" dest="65" weight="10010" label="US189" />
+	<EDGE source="202" dest="66" weight="10889" label="I 15" />
+	<EDGE source="66" dest="202" weight="10889" label="I 15" />
+	<EDGE source="67" dest="202" weight="10010" label="I 15" />
+	<EDGE source="202" dest="67" weight="10010" label="I 15" />
+	<EDGE source="68" dest="204" weight="6731" label="US6" />
+	<EDGE source="204" dest="68" weight="6731" label="US6" />
+	<EDGE source="204" dest="203" weight="15258" label="US89" />
+	<EDGE source="203" dest="204" weight="15258" label="US89" />
+	<EDGE source="194" dest="204" weight="11646" label="US6" />
+	<EDGE source="204" dest="194" weight="11646" label="US6" />
+	<EDGE source="205" dest="68" weight="17837" label="US6" />
+	<EDGE source="68" dest="205" weight="17837" label="US6" />
+	<EDGE source="205" dest="67" weight="15269" label="I 15" />
+	<EDGE source="67" dest="205" weight="15269" label="I 15" />
+	<EDGE source="206" dest="205" weight="16646" label="US6" />
+	<EDGE source="205" dest="206" weight="16646" label="US6" />
+	<EDGE source="207" dest="208" weight="1641" label="SR36" />
+	<EDGE source="208" dest="207" weight="1641" label="SR36" />
+	<EDGE source="209" dest="207" weight="1407" />
+	<EDGE source="207" dest="209" weight="1407" />
+	<EDGE source="209" dest="208" weight="1868" label="US6" />
+	<EDGE source="208" dest="209" weight="1868" label="US6" />
+	<EDGE source="208" dest="206" weight="17859" label="US6" />
+	<EDGE source="206" dest="208" weight="17859" label="US6" />
+	<EDGE source="210" dest="62" weight="15716" label="SR36" />
+	<EDGE source="62" dest="210" weight="15716" label="SR36" />
+	<EDGE source="211" dest="210" weight="12724" label="SR112" />
+	<EDGE source="210" dest="211" weight="12724" label="SR112" />
+	<EDGE source="211" dest="39" weight="12612" label="SR138" />
+	<EDGE source="39" dest="211" weight="12612" label="SR138" />
+	<EDGE source="211" dest="212" weight="17139" label="SR138" />
+	<EDGE source="212" dest="211" weight="17139" label="SR138" />
+	<EDGE source="212" dest="213" weight="11537" label="I 80" />
+	<EDGE source="213" dest="212" weight="11537" label="I 80" />
+	<EDGE source="213" dest="214" weight="122049" label="I 80" />
+	<EDGE source="214" dest="213" weight="122049" label="I 80" />
+	<EDGE source="215" dest="216" weight="1707" label="SR199" />
+	<EDGE source="216" dest="215" weight="1707" label="SR199" />
+	<EDGE source="216" dest="63" weight="32685" label="SR199" />
+	<EDGE source="63" dest="216" weight="32685" label="SR199" />
+	<EDGE source="200" dest="62" weight="53909" label="SR73" />
+	<EDGE source="62" dest="200" weight="53909" label="SR73" />
+	<EDGE source="199" dest="198" weight="5608" label="I 15" />
+	<EDGE source="198" dest="199" weight="5608" label="I 15" />
+	<EDGE source="198" dest="61" weight="9928" label="I 15" />
+	<EDGE source="61" dest="198" weight="9928" label="I 15" />
+	<EDGE source="200" dest="60" weight="12340" label="SR68" />
+	<EDGE source="60" dest="200" weight="12340" label="SR68" />
+	<EDGE source="206" dest="200" weight="41827" label="SR68" />
+	<EDGE source="200" dest="206" weight="41827" label="SR68" />
+	<EDGE source="66" dest="201" weight="10716" label="I 15" />
+	<EDGE source="201" dest="66" weight="10716" label="I 15" />
+	<EDGE source="182" dest="183" weight="29747" label="SR132" />
+	<EDGE source="183" dest="182" weight="29747" label="SR132" />
+	<EDGE source="70" dest="217" weight="1923" label="I 15" />
+	<EDGE source="217" dest="70" weight="1923" label="I 15" />
+	<EDGE source="71" dest="183" weight="2980" label="I 15" />
+	<EDGE source="183" dest="71" weight="2980" label="I 15" />
+	<EDGE source="183" dest="217" weight="3235" label="I 15" />
+	<EDGE source="217" dest="183" weight="3235" label="I 15" />
+	<EDGE source="217" dest="205" weight="21453" label="I 15" />
+	<EDGE source="205" dest="217" weight="21453" label="I 15" />
+	<EDGE source="185" dest="71" weight="11049" label="SR28" />
+	<EDGE source="71" dest="185" weight="11049" label="SR28" />
+	<EDGE source="184" dest="187" weight="24997" label="I 15" />
+	<EDGE source="187" dest="184" weight="24997" label="I 15" />
+	<EDGE source="190" dest="218" weight="8030" label="SR100" />
+	<EDGE source="218" dest="190" weight="8030" label="SR100" />
+	<EDGE source="192" dest="190" weight="2265" label="I 15" />
+	<EDGE source="190" dest="192" weight="2265" label="I 15" />
+	<EDGE source="192" dest="188" weight="3857" />
+	<EDGE source="188" dest="192" weight="3857" />
+	<EDGE source="190" dest="189" weight="2430" label="I 15" />
+	<EDGE source="189" dest="190" weight="2430" label="I 15" />
+	<EDGE source="219" dest="69" weight="51274" label="SR132" />
+	<EDGE source="69" dest="219" weight="51274" label="SR132" />
+	<EDGE source="220" dest="219" weight="22022" label="US6" />
+	<EDGE source="219" dest="220" weight="22022" label="US6" />
+	<EDGE source="220" dest="221" weight="1939" label="US6" />
+	<EDGE source="221" dest="220" weight="1939" label="US6" />
+	<EDGE source="222" dest="220" weight="5750" label="US50" />
+	<EDGE source="220" dest="222" weight="5750" label="US50" />
+	<EDGE source="222" dest="223" weight="14633" label="SR125" />
+	<EDGE source="223" dest="222" weight="14633" label="SR125" />
+	<EDGE source="74" dest="222" weight="32479" label="US50" />
+	<EDGE source="222" dest="74" weight="32479" label="US50" />
+	<EDGE source="221" dest="166" weight="6113" label="US6" />
+	<EDGE source="166" dest="221" weight="6113" label="US6" />
+	<EDGE source="224" dest="221" weight="48697" label="SR174" />
+	<EDGE source="221" dest="224" weight="48697" label="SR174" />
+	<EDGE source="225" dest="219" weight="42574" label="US6" />
+	<EDGE source="219" dest="225" weight="42574" label="US6" />
+	<EDGE source="63" dest="207" weight="51454" label="SR36" />
+	<EDGE source="207" dest="63" weight="51454" label="SR36" />
+	<EDGE source="226" dest="227" weight="46528" label="US40" />
+	<EDGE source="227" dest="226" weight="46528" label="US40" />
+	<EDGE source="227" dest="195" weight="87997" label="US40" />
+	<EDGE source="195" dest="227" weight="87997" label="US40" />
+	<EDGE source="197" dest="195" weight="102168" label="US40" />
+	<EDGE source="195" dest="197" weight="102168" label="US40" />
+	<EDGE source="228" dest="229" weight="21727" label="US191" />
+	<EDGE source="229" dest="228" weight="21727" label="US191" />
+	<EDGE source="230" dest="231" weight="13361" label="SR43" />
+	<EDGE source="231" dest="230" weight="13361" label="SR43" />
+	<EDGE source="232" dest="230" weight="3692" label="SR43" />
+	<EDGE source="230" dest="232" weight="3692" label="SR43" />
+	<EDGE source="227" dest="228" weight="46474" label="US191" />
+	<EDGE source="228" dest="227" weight="46474" label="US191" />
+	<EDGE source="233" dest="234" weight="42325" label="I 80" />
+	<EDGE source="234" dest="233" weight="42325" label="I 80" />
+	<EDGE source="234" dest="235" weight="16913" label="I 80" />
+	<EDGE source="235" dest="234" weight="16913" label="I 80" />
+	<EDGE source="236" dest="237" weight="4331" label="US40" />
+	<EDGE source="237" dest="236" weight="4331" label="US40" />
+	<EDGE source="48" dest="237" weight="3911" label="I 80" />
+	<EDGE source="237" dest="48" weight="3911" label="I 80" />
+	<EDGE source="237" dest="235" weight="10915" label="I 80" />
+	<EDGE source="235" dest="237" weight="10915" label="I 80" />
+	<EDGE source="49" dest="236" weight="8957" label="SR248" />
+	<EDGE source="236" dest="49" weight="8957" label="SR248" />
+	<EDGE source="40" dest="48" weight="24266" label="I 80" />
+	<EDGE source="48" dest="40" weight="24266" label="I 80" />
+	<EDGE source="41" dest="37" weight="5678" label="I 80" />
+	<EDGE source="37" dest="41" weight="5678" label="I 80" />
+	<EDGE source="23" dest="20" weight="3566" label="I 80" />
+	<EDGE source="20" dest="23" weight="3566" label="I 80" />
+	<EDGE source="23" dest="33" weight="3605" label="I 215" />
+	<EDGE source="33" dest="23" weight="3605" label="I 215" />
+	<EDGE source="42" dest="33" weight="7676" label="I 215" />
+	<EDGE source="33" dest="42" weight="7676" label="I 215" />
+	<EDGE source="32" dest="34" weight="2958" label="SR201" />
+	<EDGE source="34" dest="32" weight="2958" label="SR201" />
+	<EDGE source="35" dest="43" weight="7432" label="I 15" />
+	<EDGE source="43" dest="35" weight="7432" label="I 15" />
+	<EDGE source="238" dest="55" weight="6963" label="SR48" />
+	<EDGE source="55" dest="238" weight="6963" label="SR48" />
+	<EDGE source="61" dest="59" weight="6281" label="SR71" />
+	<EDGE source="59" dest="61" weight="6281" label="SR71" />
+	<EDGE source="59" dest="239" weight="8796" label="SR209" />
+	<EDGE source="239" dest="59" weight="8796" label="SR209" />
+	<EDGE source="239" dest="240" weight="15180" label="SR210" />
+	<EDGE source="240" dest="239" weight="15180" label="SR210" />
+	<EDGE source="53" dest="241" weight="24442" label="SR190" />
+	<EDGE source="241" dest="53" weight="24442" label="SR190" />
+	<EDGE source="46" dest="37" weight="4539" label="SR71" />
+	<EDGE source="37" dest="46" weight="4539" label="SR71" />
+	<EDGE source="40" dest="47" weight="8481" label="I 215" />
+	<EDGE source="47" dest="40" weight="8481" label="I 215" />
+	<EDGE source="20" dest="27" weight="17090" label="I 80" />
+	<EDGE source="27" dest="20" weight="17090" label="I 80" />
+	<EDGE source="27" dest="242" weight="4749" label="I 80" />
+	<EDGE source="242" dest="27" weight="4749" label="I 80" />
+	<EDGE source="242" dest="38" weight="2491" label="I 80" />
+	<EDGE source="38" dest="242" weight="2491" label="I 80" />
+	<EDGE source="38" dest="212" weight="24912" label="I 80" />
+	<EDGE source="212" dest="38" weight="24912" label="I 80" />
+	<EDGE source="39" dest="210" weight="10463" label="SR36" />
+	<EDGE source="210" dest="39" weight="10463" label="SR36" />
+	<EDGE source="28" dest="242" weight="6174" label="SR201" />
+	<EDGE source="242" dest="28" weight="6174" label="SR201" />
+	<EDGE source="243" dest="28" weight="5392" label="SR201" />
+	<EDGE source="28" dest="243" weight="5392" label="SR201" />
+	<EDGE source="33" dest="243" weight="13066" label="SR201" />
+	<EDGE source="243" dest="33" weight="13066" label="SR201" />
+	<EDGE source="55" dest="243" weight="13903" label="SR111" />
+	<EDGE source="243" dest="55" weight="13903" label="SR111" />
+	<EDGE source="244" dest="245" weight="12954" label="US89" />
+	<EDGE source="245" dest="244" weight="12954" label="US89" />
+	<EDGE source="244" dest="246" weight="21512" label="I 15" />
+	<EDGE source="246" dest="244" weight="21512" label="I 15" />
+	<EDGE source="246" dest="15" weight="6361" label="I 15" />
+	<EDGE source="15" dest="246" weight="6361" label="I 15" />
+	<EDGE source="245" dest="246" weight="10514" label="I 84" />
+	<EDGE source="246" dest="245" weight="10514" label="I 84" />
+	<EDGE source="234" dest="245" weight="46097" label="I 84" />
+	<EDGE source="245" dest="234" weight="46097" label="I 84" />
+	<EDGE source="16" dest="14" weight="84331" label="SR39" />
+	<EDGE source="14" dest="16" weight="84331" label="SR39" />
+	<EDGE source="14" dest="247" weight="24366" label="SR16" />
+	<EDGE source="247" dest="14" weight="24366" label="SR16" />
+	<EDGE source="248" dest="247" weight="6755" label="SR30" />
+	<EDGE source="247" dest="248" weight="6755" label="SR30" />
+	<EDGE source="247" dest="249" weight="31383" label="SR30" />
+	<EDGE source="249" dest="247" weight="31383" label="SR30" />
+	<EDGE source="249" dest="250" weight="4969" label="US89" />
+	<EDGE source="250" dest="249" weight="4969" label="US89" />
+	<EDGE source="251" dest="249" weight="51162" label="US89" />
+	<EDGE source="249" dest="251" weight="51162" label="US89" />
+	<EDGE source="12" dest="251" weight="31106" label="US89" />
+	<EDGE source="251" dest="12" weight="31106" label="US89" />
+	<EDGE source="11" dest="7" weight="3627" label="I 15" />
+	<EDGE source="7" dest="11" weight="3627" label="I 15" />
+	<EDGE source="8" dest="5" weight="17641" label="SR69" />
+	<EDGE source="5" dest="8" weight="17641" label="SR69" />
+	<EDGE source="6" dest="2" weight="5836" label="I 15" />
+	<EDGE source="2" dest="6" weight="5836" label="I 15" />
+	<EDGE source="2" dest="4" weight="5154" label="SR30" />
+	<EDGE source="4" dest="2" weight="5154" label="SR30" />
+	<EDGE source="252" dest="253" weight="9778" label="I 15" />
+	<EDGE source="253" dest="252" weight="9778" label="I 15" />
+	<EDGE source="254" dest="252" weight="9673" label="SR13" />
+	<EDGE source="252" dest="254" weight="9673" label="SR13" />
+	<EDGE source="6" dest="4" weight="2833" label="SR13" />
+	<EDGE source="4" dest="6" weight="2833" label="SR13" />
+	<EDGE source="4" dest="254" weight="6352" label="SR13" />
+	<EDGE source="254" dest="4" weight="6352" label="SR13" />
+	<EDGE source="254" dest="255" weight="5135" />
+	<EDGE source="255" dest="254" weight="5135" />
+	<EDGE source="5" dest="255" weight="6058" label="SR30" />
+	<EDGE source="255" dest="5" weight="6058" label="SR30" />
+	<EDGE source="255" dest="251" weight="24414" label="SR30" />
+	<EDGE source="251" dest="255" weight="24414" label="SR30" />
+	<EDGE source="251" dest="256" weight="22720" label="US91" />
+	<EDGE source="256" dest="251" weight="22720" label="US91" />
+	<EDGE source="7" dest="257" weight="5877" label="SR13" />
+	<EDGE source="257" dest="7" weight="5877" label="SR13" />
+	<EDGE source="257" dest="6" weight="11900" label="SR13" />
+	<EDGE source="6" dest="257" weight="11900" label="SR13" />
+	<EDGE source="3" dest="0" weight="36067" label="I 84" />
+	<EDGE source="0" dest="3" weight="36067" label="I 84" />
+	<EDGE source="0" dest="258" weight="23825" label="SR30" />
+	<EDGE source="258" dest="0" weight="23825" label="SR30" />
+	<EDGE source="258" dest="259" weight="11016" label="SR42" />
+	<EDGE source="259" dest="258" weight="11016" label="SR42" />
+	<EDGE source="260" dest="258" weight="109279" label="SR30" />
+	<EDGE source="258" dest="260" weight="109279" label="SR30" />
+	<EDGE source="15" dest="11" weight="23831" label="I 15" />
+	<EDGE source="11" dest="15" weight="23831" label="I 15" />
+	<EDGE source="245" dest="16" weight="12461" label="US89" />
+	<EDGE source="16" dest="245" weight="12461" label="US89" />
+	<EDGE source="16" dest="10" weight="23764" label="US89" />
+	<EDGE source="10" dest="16" weight="23764" label="US89" />
+	<EDGE source="29" dest="31" weight="2378" />
+	<EDGE source="31" dest="29" weight="2378" />
+	<EDGE source="24" dest="261" weight="1577" label="US89" />
+	<EDGE source="261" dest="24" weight="1577" label="US89" />
+	<EDGE source="261" dest="17" weight="3015" label="US89" />
+	<EDGE source="17" dest="261" weight="3015" label="US89" />
+	<EDGE source="36" dest="262" weight="3489" label="US89" />
+	<EDGE source="262" dest="36" weight="3489" label="US89" />
+	<EDGE source="262" dest="261" weight="3130" label="US89" />
+	<EDGE source="261" dest="262" weight="3130" label="US89" />
+	<EDGE source="41" dest="262" weight="9304" label="SR186" />
+	<EDGE source="262" dest="41" weight="9304" label="SR186" />
+	<EDGE source="263" dest="236" weight="346" label="US40" />
+	<EDGE source="236" dest="263" weight="346" label="US40" />
+	<EDGE source="197" dest="263" weight="19266" label="US40" />
+	<EDGE source="263" dest="197" weight="19266" label="US40" />
+	<EDGE source="84" dest="166" weight="89240" label="SR257" />
+	<EDGE source="166" dest="84" weight="89240" label="SR257" />
+	<EDGE source="228" dest="230" weight="42264" label="SR44" />
+	<EDGE source="230" dest="228" weight="42264" label="SR44" />
+	<EDGE source="264" dest="114" weight="34667" label="US163" />
+	<EDGE source="114" dest="264" weight="34667" label="US163" />
+	<EDGE source="18" dest="244" weight="13336" label="I 15" />
+	<EDGE source="244" dest="18" weight="13336" label="I 15" />
+	<EDGE source="50" dest="57" weight="1831" label="I 15" />
+	<EDGE source="57" dest="50" weight="1831" label="I 15" />
+	<EDGE source="64" dest="201" weight="12938" label="US89" />
+	<EDGE source="201" dest="64" weight="12938" label="US89" />
+	<EDGE source="80" dest="265" weight="12778" label="I 15" />
+	<EDGE source="265" dest="80" weight="12778" label="I 15" />
+	<EDGE source="265" dest="191" weight="18904" label="I 15" />
+	<EDGE source="191" dest="265" weight="18904" label="I 15" />
+	<EDGE source="134" dest="131" weight="17974" label="I 70" />
+	<EDGE source="131" dest="134" weight="17974" label="I 70" />
+	<EDGE source="135" dest="133" weight="33314" label="US89" />
+	<EDGE source="133" dest="135" weight="33314" label="US89" />
+	<EDGE source="136" dest="135" weight="2649" label="US89" />
+	<EDGE source="135" dest="136" weight="2649" label="US89" />
+	<EDGE source="96" dest="99" weight="14427" label="US191" />
+	<EDGE source="99" dest="96" weight="14427" label="US191" />
+	<EDGE source="2" dest="252" weight="16054" label="I 15" />
+	<EDGE source="252" dest="2" weight="16054" label="I 15" />
+	<EDGE source="2" dest="266" weight="20632" label="SR102" />
+	<EDGE source="266" dest="2" weight="20632" label="SR102" />
+	<EDGE source="3" dest="266" weight="26432" label="SR83" />
+	<EDGE source="266" dest="3" weight="26432" label="SR83" />
+	<EDGE source="266" dest="257" weight="20577" label="SR83" />
+	<EDGE source="257" dest="266" weight="20577" label="SR83" />
+	<EDGE source="267" dest="268" weight="64936" label="SR150" />
+	<EDGE source="268" dest="267" weight="64936" label="SR150" />
+	<EDGE source="268" dest="235" weight="20573" label="SR32" />
+	<EDGE source="235" dest="268" weight="20573" label="SR32" />
+	<EDGE source="263" dest="268" weight="18198" label="SR32" />
+	<EDGE source="268" dest="263" weight="18198" label="SR32" />
+</GRAPH>
+
+<!--
+**********************************************************
+Parsed 269 nodes and 742 edges
+Arc/Node Ratio: 2.758364 
+**********************************************************
+-->

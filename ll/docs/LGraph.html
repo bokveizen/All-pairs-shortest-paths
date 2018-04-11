@@ -1,0 +1,454 @@
+<html>
+    <head>
+        <title>LGraph</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+    <body text="#000000" bgColor="#ffffff">
+        <h1>LGraph</h1>
+        <table cellSpacing="1" cellPadding="2" width="100%" border="0">
+            <tr>
+                <td bgColor="#e6e6e6"><b>Description</b></td>
+                <td bgColor="#e6e6e6">Graph</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Files</b></td>
+                <td bgColor="#e6e6e6"><tt>&lt;LGraph.h, LGraph.c&gt;</tt></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Author</b></td>
+                <td bgColor="#e6e6e6"><A href="mailto:thepomy@tin.it">Stefano Emiliozzi</A>, <A href="http://www.dis.uniroma1.it/~demetres">
+                        Camil Demetrescu</A></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Created</b></td>
+                <td bgColor="#e6e6e6">Jan 16, 2003</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Last updated</b></td>
+                <td bgColor="#e6e6e6">Feb 19, 2003</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Contents</h2>
+        <ul>
+            <li>
+                <A href="#intro">Introduction</A>
+            <li>
+                <A href="#interface">Interface</A>
+            <li>
+                <A href="#apiref">API reference</A>
+            <li>
+                <A href="#history">Revision history</A></li></ul>
+        <hr>
+        <h2><b><a name="intro"></a>Introduction</b></h2>
+        The component <tt>LGraph</tt> provides support for representing graphs, both 
+        directed and undirected. This component is based upon the idea that it have to 
+        represent only the topological information of a graph. Basically it keeps track 
+        only of the connections between the nodes. Adding info to edges and nodes, is 
+        demanded to others components such as <tt>LEdgeInfo</tt> and <tt>LNodeInfo</tt>; 
+        we strongly recommend to look also at theirs documentation.
+        <p>
+            <hr>
+            <h2><b><a name="interface"></a>Interface</b></h2>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Constants</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LGraph_ID<br>
+                            LGraph_OBJECT_NULL_POINTER<br>
+                            LGraph_NODE_NULL_POINTER<br>
+                            LGraph_EDGE_NULL_POINTER<br>
+                            LGraph_NODE_NOT_IN_GRAPH<br>
+                            LGraph_EDGE_NOT_IN_GRAPH<br>
+                            LGraph_DIRECTED<br>
+                            LGraph_UNDIRECTED</tt>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Types</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>struct LGraph<br>
+                            struct LGraph_TNode<br>
+                            struct LGraph_TEdge</tt>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Functions</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LHash* LHash_New()<br>
+                            LGraph* LGraph_New(Bool inDirected)<br>
+                            void LGraph_Delete(LGraph** ThisA)<br>
+                            LGraph_TNode* LGraph_NewNode(LGraph* This)<br>
+                            void LGraph_DelNode(LGraph* This, LGraph_TNode* inNode)<br>
+                            LGraph_TEdge* LGraph_NewEdge(LGraph* This, LGraph_TNode* inSource, 
+                            LGraph_TNode* inTarget)<br>
+                            void LGraph_DelEdge(LGraph* This, LGraph_TEdge* inEdge)<br>
+                            LGraph_TNode* LGraph_GetFirstNode(LGraph* This)<br>
+                            LGraph_TEdge* LGraph_GetFirstEdge(LGraph* This)<br>
+                            LGraph_TEdge* LGraph_GetLastEdge(LGraph* This)<br>
+                            LArray* LGraph_GetAllNodes(LGraph* This)<br>
+                            LGraph_TNode* LGraph_GetFirstNode(LGraph* This)<br>
+                            LArray* LGraph_GetAllEdges(LGraph* This)<br>
+                            LArray* LGraph_GetOutEdges(LGraph* This, LGraph_TNode* inNode)<br>
+                            LArray* LGraph_GetInEdges(LGraph* This, LGraph_TNode* inNode)<br>
+                            Array* LGraph_GetAdjNodes(LGraph* This, LGraph_TNode* inNode)<br>
+                            Bool LGraph_IsDirected(LGraph* This)<br>
+                            Bool LGraph_IsEmpty(LGraph* This)<br>
+                            ui4 LGraph_GetUsedMem(LGraph* This)<br>
+                            ui4 LGraph_GetInDeg(LGraph_TNode* inNode)<br>
+                            ui4 LGraph_GetOutDeg(LGraph_TNode* inNode)<br>
+                            ui4 LGraph_GetDegree(LGraph_TNode* inNode)<br>
+                            ui4 LGraph_GetNodesCount(LGraph* This)<br>
+                            ui4 LGraph_GetEdgesCount(LGraph* This)</tt>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Macros</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LGraph_GetNextNode(v)<br>
+                            LGraph_GetNextNode(v)<br>
+                            LGraph_ForAllNodes(v,g)<br>
+                            LGraph_GetNextEdge(e)<br>
+                            LGraph_ForAllEdges(e,g)<br>
+                            LGraph_GetSource(e)<br>
+                            LGraph_GetTarget(e)<br>
+                            LGraph_GetFirstOutEdge(v)<br>
+                            LGraph_GetNextOutEdge(v,e)<br>
+                            LGraph_ForAllOut(v,e)<br>
+                            LGraph_GetFirstInEdge(v)<br>
+                            LGraph_GetNextInEdge(v,e)<br>
+                            LGraph_ForAllIn(v,e)</tt>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h2><a name="apiref"></a>API Reference</h2>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Macro</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetNextNode(v)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v".</td>
+                    <td bgColor="#e6e6e6">Gives the node next to "v" in the graph.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_ForAllNodes(v,g)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v", a graph "g".</td>
+                    <td bgColor="#e6e6e6">Each iteration assigns the next node in the graph to "v".<br>
+                        NOTE: "v" <b>must</b> not be deleted during the loop.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetNextEdge(e)</tt></td>
+                    <td bgColor="#e6e6e6">An edge "e".</td>
+                    <td bgColor="#e6e6e6">Gives the edge next to "e" in the graph.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_ForAllEdges(e,g)</tt></td>
+                    <td bgColor="#e6e6e6">An edge "e", a graph "g".</td>
+                    <td bgColor="#e6e6e6">Each iteration assigns the next edge in the graph to "e".<br>
+                        NOTE: "e" <b>must</b> not be deleted during the loop.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetSource(e)</tt></td>
+                    <td bgColor="#e6e6e6">An edge "e".</td>
+                    <td bgColor="#e6e6e6">Gives the source node of an edge e.<br>
+                        NOTE: On undirected graphs the edge <tt>Source("A")-&gt;Target("B")</tt> means 
+                        that from "B" you can reach also "A"; this should be taken into consideration 
+                        when writing algorithms on graph visits.
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetTarget(e)</tt></td>
+                    <td bgColor="#e6e6e6">An edge "e".</td>
+                    <td bgColor="#e6e6e6">Gives the target node of an edge e.<br>
+                        See also the note in <tt>LGraph_GetSource(e)</tt>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetFirstOutEdge(v)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v".</td>
+                    <td bgColor="#e6e6e6">Gives the first egde in the outlist of a node "v".</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetNextOutEdge(v,e)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v", an edge "e".</td>
+                    <td bgColor="#e6e6e6">Gives the edge next to "e" in the outlist of a node "v".</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_ForAllOut(v,e)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v", an edge "e".</td>
+                    <td bgColor="#e6e6e6">Each iteration assigns the next edge in the outlist of "v" to 
+                        "e".<br>
+                        NOTE: "e" <b>must</b> not be deleted during the loop.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetFirstInEdge(v)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v".</td>
+                    <td bgColor="#e6e6e6">Gives the first egde in the inlist of a node "v".</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_GetNextInEdge(v,e)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v", an edge "e".</td>
+                    <td bgColor="#e6e6e6">Gives the egde next to "e" in the inlist of a node "v".</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph_ForAllIn(v,e)</tt></td>
+                    <td bgColor="#e6e6e6">A node "v", an edge "e".</td>
+                    <td bgColor="#e6e6e6">Each iteration assigns the next edge in the inlist of "v" to 
+                        "e". This macro has meaning only if the graph is directed.</td>
+                </tr>
+            </table>
+            <br>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Function</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                    <td bgColor="#e6e6e6"><b>Returns</b></td>
+                    <td bgColor="#e6e6e6"><b>Throws</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt><font color="#ff0000">New</font></tt></td>
+                    <td bgColor="#e6e6e6"><tt>Bool inDirected</tt></td>
+                    <td bgColor="#e6e6e6">Creates an object containing an empty graph. <font color="#ff0000">
+                            Caller is responsible of dellocating the created object using <tt>LGraph_Delete</tt>.</font></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LGraph*</tt></p>
+                        <p>pointer to the newly created object</p>
+                    </td>
+                    <td bgColor="#e6e6e6">-</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>Delete</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LGraph** ThisA</tt></td>
+                    <td bgColor="#e6e6e6">Releases object <tt>*ThisA</tt>. <tt>*ThisA</tt> is set to <tt>NULL</tt>.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>ThisA</tt> or <tt>*ThisA</tt>
+                        are <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>NewNode</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Adds a new node in the graph and returns a pointer to it.</td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TNode*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>DelNode</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>Graph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Deletes the node <tt>inNode</tt> and all its edges from the 
+                        graph.</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL </tt>
+                        <br>
+                        <tt>NODE_NULL_PONTER</tt> if <tt>inNode</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inNode</tt> isn't in the graph
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraph_NewEdge</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inSource</tt><br>
+                        <tt>LGraph_TNode* inTarget</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Adds an edge between <tt>inSource</tt> and <tt>inTarget</tt> and 
+                        returns a pointer to it.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TEdge*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inSource</tt> or <tt>inTarget</tt> are <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inSource</tt> or <tt>inTarget</tt> aren't 
+                        in the graph
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LGraph_DelEdge</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inEdge</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Removes <tt>inEdge</tt> from the graph.</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>EDGE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>EDGE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetFirstNode</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the first node in the graph.</td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TNode*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetLastNode</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the last node in the graph.</td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TNode*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetFirstEdge</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the first edge in the graph.</td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TEdge*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetLastEdge</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the last edge in the graph.</td>
+                    <td bgColor="#e6e6e6"><tt>LGraph_TEdge*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetAllNodes</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns a LArray with all nodes in the graph.<br>
+                        NOTE: every method that returns a <tt>LArray*</tt> performs a <tt>LArray_New</tt>
+                        in the code. <font color="#ff0000">This means that in order to avoid memory leaks, 
+                            the caller is responsible to call the <tt>LArray_Delete</tt> on the object.</font>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>LArray*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetAllEdges</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns a LArray with all edges in the graph. See also the 
+                        note in <tt>GetAllNodes</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LArray*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetOutEdges</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns a LArray with all out edges of a given node. See also 
+                        the note in <tt>GetAllNodes</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LArray*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetInEdges</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns a LArray with all in edges of a given node. It the 
+                        graph is undirected, returns <tt>NULL</tt>. See also the note in <tt>GetAllNodes</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LArray*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetAdjEdges</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns a LArray with all nodes adjacent to a given node. See 
+                        also the note in <tt>GetAllNodes</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LArray*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>IsDirected</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns <tt>TRUE</tt> if the graph is directed, <tt>FALSE</tt>
+                        otherwise.</td>
+                    <td bgColor="#e6e6e6"><tt>Bool</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>IsEmpty</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns <tt>TRUE</tt> if the graph is empty, <tt>FALSE</tt> otherwise.</td>
+                    <td bgColor="#e6e6e6"><tt>Bool</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetUsedMem</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the memory usage in bytes of the whole structure.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetInDeg</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns the fan-in of a given node. If the graph is 
+                        undirected this is <tt>0</tt>.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetOutDeg</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns the fan-out of a given node.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetDegree</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt><br>
+                        <tt>LGraph_TNode* inNode</tt></td>
+                    <td bgColor="#e6e6e6">Returns the fan-in + fan-out of a given node.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>NODE_IS_NOT_IN_GRAPH</tt> if <tt>inEdge</tt> isn't in the graph</td>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetNodesCount</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the number of nodes in the graph</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetEdgesCount</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LGraph* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the number of edges in the graph</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+            </table>
+        <p>
+            <hr>
+            <h2><a name="history"></a>Revision history</h2>
+            <ul>
+                <li>
+                Jan 16, 2003: created.
+                <li>
+                    Jan 19, 2003: Changed the MACRO from <tt>ForAllIn(v,e,g)</tt> to <tt>ForAllIn(v,e)</tt>.
+                </li>
+            </ul>
+            <hr>
+        <p align="right"><font size="-1"><A href="../index.html">Leonardo Developer Documentation</A><br>
+                Last updated: Feb 19, 2003</font></p>
+    </body>
+</html>

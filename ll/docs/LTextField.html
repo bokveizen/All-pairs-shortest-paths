@@ -1,0 +1,369 @@
+<html>
+<head>
+<title>LTextField</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1><span lang="it">LTextField</span></h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">LSL's&nbsp; Text Field</span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;L<span lang="it">TextField.h</span>, L<span lang="it">TextField_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Aug</span> <span lang="it">2</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">7</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>L<span lang="it">TextField </span></tt><span lang="it">provides 
+support for creating and managing Text Fields.</span></p>
+<p>NOTE: Buffer size is limited to 32k on the win32 version of the library.</p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>L<span lang="it">TextField</span>_ID    </pre>
+      <pre>LTextField_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre><span lang="it">enum tagLTextField_TFont {
+    LTextField_ANSIFIXED,
+    LTextField_ANSIVAR,
+    LTextField_SYSTEMFIXED,
+    LTextField_SYSTEMVAR
+} LTextField_TFont</span></pre>
+      <pre><span lang="it">struct LTextField</span></pre>
+      <pre><span lang="it">Bool (*LTextField_THandler) (LTextField* inEditor)</span>
+</pre>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2" width="939"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2" width="939"> 
+      <pre>LTextField*  LTextField_Create       (LWindow* inWindow, ui4 inX, ui4 inY, ui4 inWidth, ui4 inHeight, Bool inFrameOn)
+void        LTextField_Destroy      (LTextField* inEditor)
+void        LTextField_Move         (LTextField* inEditor, ui4 inX, ui4 inY)
+void        LTextField_Resize       (LTextField* inEditor, ui4 inWidth, ui4 inHeight)
+void        LTextField_SetTextBuffer    (LTextField* inEditor, i1* inBuffer)
+i4      LTextField_GetTextBufferSize    (LTextField* inEditor)
+void        LTextField_GetTextBuffer    (LTextField* inEditor, i1* outBuffer, i4 inLength)
+void        LTextField_SetFont      (LTextField* inEditor, LTextEditor_TFont inFont)
+void        LTextField_SetFocus         (LTextField* inEditor)
+LTextField*     LTextField_GetFocus         ()
+void        LTextField_Undo         (LTextField* inEditor)
+void        LTextField_Cut          (LTextField* inEditor)
+void        LTextField_Copy         (LTextField* inEditor)
+void        LTextField_Paste        (LTextField* inEditor)
+void        LTextField_SelectAll        (LTextField* inEditor) 
+Bool        LTextField_CanUndo      (LTextField* inEditor)
+Bool        LTextField_IsTextAvailable  ()
+Bool        LTextField_IsSelectionAvailable (LTextField* inEditor)
+void        LTextField_InstallReturnHandler (LTextField* inEditor, LTextField_THandler inHandler)
+LWindow*    LTextField_GetParentWindow      (LTextField* inEditor)
+void        LTextField_Enable       (LTextField* inEditor, Bool inEnabled)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1" height="738">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="6"><tt><span lang="it">Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="4"><tt>LWindow* inWindow</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6">Creates a new textfield in the specified window and with the specified attributes.  </td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6"> <tt><span lang="it">LText</span>Field<span lang="it">*</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt>ui4 inX</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt>ui4 inY</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="4"><tt>ui4 inWidth</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt>ui4 inHeight</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt>Bool inFrameOn</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it"> LTextField* inEditor</span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys&nbsp; inEditor.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><tt><span lang="it">Move</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><span lang="it">Moves inEditor 
+      into a new position (origin of coordinates in the upper left corner of the 
+      parent window).</span></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="48" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inX</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><tt><span lang="it">ui4 inY</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt><span lang="it">Resize&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><span lang="it">Resizes inEditor.</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="13"><tt><span lang="it">ui4 inWidth</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="12"><tt><span lang="it">ui4 inHeight</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt><span lang="it"> SetTextBuffer</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><span lang="it">Sets inEditor's 
+      buffer. inBuffer is a pointer to a null ( \0 ) terminated buffer.</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i1* inBuffer</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it">GetTextBufferSize</span></tt></td>
+    <td bgcolor="#E6E6E6" height="12"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38"><span lang="it">Returns inEditor's buffer 
+      size (in bytes).</span></td>
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it">i4</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt><span lang="it"> GetTextBuffer</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><span lang="it">Copies inLength 
+      bytes from inEditor's buffer into outBuffer.</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="3">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">i1* outBuffer</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">i4* inLength</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt><span lang="it"> SetFont</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><span lang="it">Sets inEditor's 
+      font and immediately updates the display.</span></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38" rowspan="2">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LTextField_TFont inFont</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it"> SetFocus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="38">Gives inEditor the focus (as a result its 
+      parent window will be activated).</td>
+    <td bgcolor="#E6E6E6" height="38"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="38">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="38"><tt><span lang="it"> GetFocus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt>-</tt></td>
+    <td bgcolor="#E6E6E6" height="38">If a textfield has the focus, this function 
+      will return a pointer to it. Otherwise it returns NULL.</td>
+    <td bgcolor="#E6E6E6" height="38"><tt>LText<span lang="it">Field</span>*</tt></td>
+    <td bgcolor="#E6E6E6" height="38">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it"> Undo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26">This function will (if possible) undo the 
+      last operation performed on inEditor (i.e. cut, paste, typing...).</td>
+    <td bgcolor="#E6E6E6" height="26"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="26"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Cut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor 
+      </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>This function will &quot;cut&quot; the current selection (only if a selection 
+        is available).</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> Copy</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor 
+      </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19">This function will &quot;copy&quot; the 
+      current selection (only if a selection is available).</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> Paste</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">This function will &quot;paste&quot; the 
+      content of the clipboard (only if the clipboard contains text).</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> SelectAll</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">This function will select the entire content 
+      of inEditor's buffer (only if the buffer is not empty).</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> CanUndo</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">If the last operation performed on inEditor 
+      can be undone, this function will return TRUE. Otherwise it will return 
+      FALSE.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>Bool</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> IsTextAvailable</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt>-</tt></td>
+    <td bgcolor="#E6E6E6" height="19">If the system clipboard contains text, this 
+      function returns TRUE, otherwise it returns FALSE.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>Bool</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> IsSelectionAvailable</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">If some text is selected in inEditor, this function returns TRUE. Otherwise it returns FALSE.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>Bool</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it"> InstallReturnHandler</span></tt></td>
+    <td bgcolor="#E6E6E6" height="4"> <tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">This function installs (or reinstalls) 
+    a handler that is invoked 
+      whenever the return key is pressed (while the editor has keyboard focus).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt>LText<span lang="it">Field</span>_THandler inHandler</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it"> GetParentWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"> <tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns a pointer to the window containing inEditor</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>LWindow*</tt></td>
+    <td bgcolor="#E6E6E6" height="19">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it"> Enable</span></tt></td>
+    <td bgcolor="#E6E6E6" height="4"> <tt><span lang="it">LTextField* inEditor</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">If inEnabled is TRUE, enables 
+    the textfield, otherwise disables it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">-</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"> <font face="Courier New" size="2">
+    <span lang="it">Bool inEnabled</span></font></td>
+  </tr>
+</table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Aug</span> <span lang="it">2</span>, 200<span lang="it">2</span>: 
+    created.</li>
+  <li> Feb 7, 2003: last updated.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Jul 22, 2002</font></p>
+
+</body>
+</html>

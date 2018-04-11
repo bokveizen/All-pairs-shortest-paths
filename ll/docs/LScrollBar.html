@@ -1,0 +1,248 @@
+<html>
+<head>
+<title>LScrollBar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LScrollBar</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The ScrollBar Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LScrollBar<span lang="it">.h</span>, 
+    LScrollBar_win32.h, L<span lang="it">ScrollBar_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Sep</span> <span lang="it">2</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Sep</span> <span lang="it">2</span>, 
+      200<span lang="it">2</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LScrollBar<span lang="it"> </span></tt>
+provides support for creating and managing ScrollBar widgets.</p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LScrollBar_ID</pre>
+      <pre>LScrollBar_<tt><span lang="it">CANT_CREATE</span></tt></pre>
+      <pre>LScrollBar_VER</pre>
+      <pre>LScrollBar_HOR
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LScrollBar</pre>
+      <pre>enum tagLScrollBar_TEvent {
+LScrollBar_LINEUP,
+LScrollBar_LINEDOWN,
+LScrollBar_PAGEUP,
+LScrollBar_PAGEDOWN,
+LScrollBar_THUMBPOSITION,
+LScrollBar_THUMBTRACK
+} LScrollBar_TEvent</pre>
+      <pre>void (*LScrollBar_THandler) (LScrollBar* inBar, LScrollBar_TEvent inEvent, ui2 inInfo)
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LScrollBar*  LScrollBar_Create       (LWindow* inWindow, i4 inX, i4 inY, ui4 inDX, ui4 inDY, ui2 inHorVer, LScrollBar_THandler inHandler)
+void        LScrollBar_Destroy      (LScrollBar* inBar)
+void        LScrollBar_Move         (LScrollBar* inBar, i4 inX, i4 inY)
+void        LScrollBar_Resize       (LScrollBar* inBar, ui4 inDX, ui4 inDY)
+void        LScrollBar_SetPosition      (LScrollBar* inBar, ui2 inPos)
+ui2         LScrollBar_GetPosition      (LScrollBar* inBar)
+void        LScrollBar_SetRange         (LScrollBar* inBar, ui2 inMinRange, ui2 inMaxRange)
+LWindow*    LScrollBar_GetParentWindow  (LScrollBar* inBar)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7">Creates a scrollbar with the 
+    specified attributes.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"> <tt>LScrollBar*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="7"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><font face="Courier New" size="2">
+    <span lang="it">i4 inX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">i4 inY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">ui2 
+    inHorVer</font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    LScrollBar_THandler inHandler</font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LScrollBar* inBar </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inBar.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      <font face="Courier New" size="2"><span lang="it">Move</span></font></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LScrollBar* inBar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      Moves inBar to the specified coordinates (origin in upper left corner of 
+      parent window).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">i4 inX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><font face="Courier New" size="2">
+    <span lang="it">i4 inY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      <span lang="it"><font face="Courier New" size="2">Resize</font></span></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LScrollBar* inBar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> 
+      Resizes inBar.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDX</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="0"><font face="Courier New" size="2">
+    <span lang="it">ui4 inDY</span></font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">
+    SetPosition</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LScrollBar* inBar </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets inBar's new position and 
+    redraws it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">ui2 inPos</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    SetRange</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LScrollBar* inBar</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Sets inBar's new range and 
+    redraws it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui2 inMinRange</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui2 inMaxRange</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    GetParentWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LScrollBar* inBar </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns inBar's parent window.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  </table>
+<hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Sep</span> <span lang="it">2</span>, 200<span lang="it">2</span>: created.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

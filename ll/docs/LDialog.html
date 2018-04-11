@@ -1,0 +1,239 @@
+<html>
+<head>
+<title>LDialog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LDialog</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">Pre-Made Dialog Boxes </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LDialog<span lang="it">.h</span>, L<span lang="it">Dialog_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">22</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Apr</span> <span lang="it">2</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LDialog<span lang="it"> </span></tt><span lang="it">provides </span>
+pre-made easy-to-use dialog boxes adaptable to most common situations (notifications 
+to the user, questions that require a yes/no answer, opening and saving 
+files...).</p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LDialog_ID
+    
+LDialog_MAX_TITLE</pre>
+      <pre>LDialog_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>enum tagLDialog_TMBReturnID {
+    LDialog_MBIDABORT,
+    LDialog_MBIDCANCEL,
+    LDialog_MBIDIGNORE,
+    LDialog_MBIDNO,
+    LDialog_MBIDOK,
+    LDialog_MBIDRETRY,
+    LDialog_MBIDYES
+} LDialog_TMBReturnID
+
+enum tagLDialog_TMBButtons {
+    LDialog_MBABORTRETRYIGNORE,
+    LDialog_MBOK,
+    LDialog_MBOKCANCEL,
+    LDialog_MBRETRYCANCEL,
+    LDialog_MBYESNO,
+    LDialog_MBYESNOCANCEL
+} LDialog_TMBButtons
+
+enum tagLDialog_TMBIcon {
+    LDialog_MBICONEXCLAMATION,
+    LDialog_MBICONINFORMATION,
+    LDialog_MBICONQUESTION,
+    LDialog_MBICONSTOP
+} LDialog_TMBIcon
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LDialog_TMBReturnID  LDialog_DisplayMessageBox   (LWindow* inOwner, i1* inText, i1* inTitle, LDialog_TMBButtons inButtons, LDialog_TMBIcon inIcon)
+Bool            LDialog_GetSaveFileName     (LWindow* inOwner, i1* inFilters[], ui1 inNumFilters, i1 inBuffer[LFile_MAX_PATH_LEN])
+Bool            LDialog_GetOpenFileName     (LWindow* inOwner, i1* inFilters[], ui1 inNumFilters, i1 inBuffer[LFile_MAX_PATH_LEN])
+ui4             LDialog_ColorPicker         (LWindow* inOwner)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"><tt><span lang="it">
+    DisplayMessageBox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LWindow* inOwner </span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5">Displays a general purpose 
+    message box. If inOwner is not NULL, the corresponding window will be 
+    brought to the foreground before the message box is displayed.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"> <tt>LDialog_TMBReturnID</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="5"><span lang="it">
+    <font face="Courier New" size="2">CANT_CREATE</font></span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i1* inText </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i1* inTitle </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LDialog_TMBButtons inButtons </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">LDialog_TMBIcons inIcon </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"> 
+      <div align="left"> <tt><span lang="it">GetSaveFileName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LWindow* inOwner </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"> 
+      <p>Displays a &quot;Save as&quot; dialog box. inFilters is an array that 
+      alternates filter descriptions and specifications (e.g. inFilters[0]=&quot;C 
+      and C++ Source Files&quot; and inFilters[1]=&quot;*.C;*.CPP&quot;). inNumFilters 
+      specifies the number of description-specification pairs in the array. If the user cancels the operation the function returns False, otherwise it 
+      returns True and the complete path plus filename is copied onto inBuffer. 
+      The buffer pointed to by inBuffer may also contain a default filename (which 
+      might be overwritten by the user's selection). If inOwner is not NULL, the 
+      corresponding window will be brought to the foreground before the dialog 
+      box is displayed.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"> <tt>Bool</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"><span lang="it">
+    <font face="Courier New" size="2">CANT_CREATE</font></span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">i1* inFilters[] </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">ui1 inNumFilters </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i1 inBuffer</span>[LFile_MAX_PATH_LEN]<span lang="it"> </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"><tt><span lang="it">
+    GetOpenFileName</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LWindow* inOwner </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4">Displays an &quot;Open&quot; dialog box. 
+     
+    inFilters is an array that alternates filter descriptions and specifications 
+    (e.g. inFilters[0]=&quot;C and C++ Source Files&quot; and inFilters[1]=&quot;*.C;*.CPP&quot;). 
+    inNumFilters specifies the number of description-specification pairs in the 
+    array. If the user cancels the 
+    operation the function returns False, otherwise it returns True and the 
+    complete path plus filename is copied onto inBuffer. The buffer pointed to 
+    by inBuffer may also contain a default filename (which might be overwritten 
+    by the user's selection). If inOwner is not NULL, the corresponding window 
+    will be brought to the foreground before the dialog box is displayed.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"><tt>Bool</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="4"><span lang="it">
+    <font face="Courier New" size="2">CANT_CREATE</font></span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">i1* inFilters[] </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">ui1 inNumFilters</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i1 inBuffer[LFile_MAX_PATH_LEN] </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    ColorPicker</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LWindow* inOwner</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Displays a standard &quot;color picker&quot; dialog 
+    box. If OK is pressed, returns user selected RGB color (0x00bbrrgg), 
+    0xffffffff otherwise. If inOwner is not NULL, the corresponding window 
+    will be brought to the foreground before the dialog box is displayed.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>ui4</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><span lang="it">
+    <font face="Courier New" size="2">CANT_CREATE</font></span></td>
+  </tr>
+  </table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Feb</span> <span lang="it">22</span>, 200<span lang="it">2</span>: created.</li>
+  <li> <span lang="it">Apr 2, 2003: last updated.</span></li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

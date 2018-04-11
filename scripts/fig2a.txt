@@ -1,0 +1,64 @@
+# experiment on CDAPSP for increasing alpha
+t
+e
+fig2a
+s
+m
+------ create random graph (n=500, m=1500, w=1..10)
+g
+r
+314
+500
+1500
+1
+10
+m
+------ create random sequence
+s
+314
+10
+m
+------ alpha = 0.00
+t
+d
+0.00
+1.0
+m
+d
+------ alpha = 0.01
+t
+d
+0.01
+1.0
+m
+d
+------ alpha = 0.02
+t
+d
+0.02
+1.0
+m
+d
+------ alpha = 0.03
+t
+d
+0.03
+1.0
+m
+d
+------ alpha = 0.04
+t
+d
+0.04
+1.0
+m
+d
+------ alpha = 0.05
+t
+d
+0.05
+1.0
+m
+d
+------
+q

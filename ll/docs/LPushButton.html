@@ -1,0 +1,249 @@
+<html>
+<head>
+<title>LPushButton</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LPushButton</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The PushButton Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LPushButton<span lang="it">.h</span>, 
+    LPushButton_win32.h, L<span lang="it">PushButton_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">May</span> <span lang="it">27</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Feb</span> <span lang="it">2</span>, 
+      200<span lang="it">3</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LPushButton<span lang="it"> </span></tt><span lang="it">
+<font face="Times New Roman" size="4"> <tt><font face="serif">provides</font><font face="serif"> support for creating and managing PushButton widgets. Both &quot;bitmapped&quot; 
+and &quot;text&quot; pushbuttons are provided.</font></tt></font></span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LPushButton_ID
+    
+LPushButton_MAX_TEXT</pre>
+      <pre>LPushButton_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LPushButton</pre>
+      <pre>void (*LPushButton_THandler) (LPushButton* inButton)</pre>
+      <pre>typedef enum tagLPushButton_TFont {
+LPushButton_ANSIFIXED,
+LPushButton_ANSIVAR,
+LPushButton_SYSTEMFIXED,
+LPushButton_SYSTEMVAR
+} LPushButton_TFont
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LPushButton*     LPushButton_Create      (LWindow* inWindow, i4 inX, i4 inY, ui4 inDX, ui4 inDY, i1* inText, LBitmap* inBitmap, LPushButton_THandler inHandler)
+void        LPushButton_Destroy         (LPushButton* inButton)
+void        LPushButton_Move        (LPushButton* inButton, i4 inX, i4 inY)
+void        LPushButton_Resize      (LPushButton* inButton, ui4 inWidth, ui4 inHeight)
+void        LPushButton_SetFocus        (LPushButton* inButton)
+LWindow*    LPushButton_GetParentWindow     (LPushButton* inButton)
+void        LPushButton_SetFont         (LPushButton* inButton, LPushButton_TFont inFont)
+void        LPushButton_Enable      (LPushButton* inButton, Bool inEnabled)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="8"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="8">Creates a pushbutton with the 
+    specified attributes. If inBitmap is not NULL, the corresponding bitmap will 
+    be used to decorate the button (inText will be ignored); if inBitmap is NULL, 
+    a &quot;text&quot; pushbutton (using inText)&nbsp; will be created.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="8"> <tt>LPushButton*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="8"> <tt>CANT_CREATE</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inY </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDY</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">i1* inText </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LBitmap* inBitmap </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LPushButton_THandler 
+    inHandler </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LPushButton* inButton </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inPushButton.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Move</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LPushButton* inButton </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Moves inPushButton (origin of 
+    coordinates in upper left corner of parent window).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inX </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inY </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Resize</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LPushButton* inButton </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Resizes inPushButton.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inWidth</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inHeight</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    SetFocus</span></tt></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LPushButton* inButton </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Sets the keyboard focus to the specified 
+    pushbutton.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><font face="Courier New" size="2">
+    <span lang="it">GetParentWindow</span></font></td>
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">LPushButton* inButton </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns inPushButton's parent window.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">
+    <font face="Courier New" size="2"><span lang="it">SetFont</span></font></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LPushButton* inButton </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets inPushButton's font.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="3"><font face="Courier New" size="2">LPushButton_TFont inFont</font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">
+    <tt><span lang="it">
+    Enable</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LPushButton* inButton </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">If inEnabled is TRUE, enables 
+    the pushbutton, otherwise disables it.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><font face="Courier New" size="2">Bool 
+    inEnabled</font></td>
+  </tr>
+  </table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">May</span> <span lang="it">27</span>, 200<span lang="it">2</span>: created.</li>
+  <li> Feb 2, 2003: last updated.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

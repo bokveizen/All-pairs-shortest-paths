@@ -1,0 +1,357 @@
+# experiments on bottleneck graphs for increasing edge density
+t
+e
+fig9
+l
+0
+0
+100
+10
+d
+0
+0.6
+m
+----------------
+# generate graph
+k
+b
+500
+314
+0.05
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.1
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.2
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.3
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.4
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.5
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.6
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.7
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.8
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.9
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+1.0
+1
+1000
+10
+m
+----------------
+# run algorithm
+a
+b
+c
+f
+----------------
+# generate graph
+k
+b
+500
+314
+0.05
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.1
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.2
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.3
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.4
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.5
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.6
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.7
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.8
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+0.9
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# generate graph
+k
+b
+500
+314
+1.0
+1
+5
+10
+m
+----------------
+# run algorithm
+d
+----------------
+# quit
+q

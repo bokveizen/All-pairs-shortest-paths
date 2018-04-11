@@ -1,0 +1,304 @@
+<html>
+    <head>
+        <title>LEdgeInfo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+    <body text="#000000" bgColor="#ffffff">
+        <h1>LEdgeInfo</h1>
+        <table cellSpacing="1" cellPadding="2" width="100%" border="0">
+            <tr>
+                <td bgColor="#e6e6e6"><b>Description</b></td>
+                <td bgColor="#e6e6e6">Data associated to edges of a graph</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Files</b></td>
+                <td bgColor="#e6e6e6"><tt>&lt;LEdgeInfo.h, LEdgeInfo.c&gt;</tt></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Author</b></td>
+                <td bgColor="#e6e6e6"><A href="mailto:thepomy@tin.it">Stefano Emiliozzi</A>, <A href="http://www.dis.uniroma1.it/~demetres">
+                        Camil Demetrescu</A></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Created</b></td>
+                <td bgColor="#e6e6e6">Jan 17, 2003</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Last updated</b></td>
+                <td bgColor="#e6e6e6">Mar 18, 2003</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Contents</h2>
+        <ul>
+            <li>
+                <A href="#intro">Introduction</A>
+            <li>
+                <A href="#interface">Interface</A>
+            <li>
+                <A href="#apiref">API reference</A>
+            <li>
+                <A href="#history">Revision history</A></li></ul>
+        <hr>
+        <h2><b><a name="intro"></a>Introduction</b></h2>
+        The component <tt>LEdgeInfo</tt> is used to associate data to edges of a graph; 
+        each graph is represented using the object <tt>LGraph</tt> and can have 
+        multiple <tt>LEdgeInfo</tt> associated, but a <tt>LEdgeInfo</tt> can be 
+        associated only to one <tt>LGraph</tt>.
+        <p>
+            <hr>
+            <h2><b><a name="interface"></a>Interface</b></h2>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Constants</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LEdgeInfo_ID</tt><br>
+                        <tt>LEdgeInfo_OBJECT_NULL_POINTER</tt><br>
+                        <tt>LEdgeInfo_GRAPH_NULL_POINTER</tt><br>
+                        <tt>LEdgeInfo_EDGE_NULL_POINTER</tt><br>
+                        <tt>LEdgeInfo_ITEM_NULL_POINTER</tt><br>
+                        <tt>LEdgeInfo_BASE_TYPE_MISMATCH</tt>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Types</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>struct LEdgeInfo</tt></td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Functions</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2">
+                        <tt>LEdgeInfo* LEdgeInfo_New(LGraph* inGraph, const LType_TType* inType)<br>
+                            LEdgeInfo* LEdgeInfo_NewCustom(LGraph* inGraph, ui4 inItemSize)<br>
+                            void LEdgeInfo_Delete(LEdgeInfo** ThisA)<br>
+                            void* LEdgeInfo_ItemAt(LEdgeInfo* This, LGraph_TEdge* inEdge)<br>
+                            void LEdgeInfo_AssignItemAt(LEdgeInfo* This, LGraph_TEdge* inEdge, const void* 
+                            inItem)<br>
+                            Bool LEdgeInfo_FetchItemAt (LEdgeInfo* This, LGraph_TEdge* inEdge, void* 
+                            outItem)<br>
+                            LType_TType LEdgeInfo_GetBaseType (LEdgeInfo* This)<br>
+                            ui4 LEdgeInfo_GetUsedMem (LEdgeInfo* This)</tt>
+                            
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Macros</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LEdgeInfo_UI1At(EdgeInfo,Edge)<br>
+                            LEdgeInfo_UI2At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_UI4At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_I1At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_I2At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_I4At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_F4At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_F8At(EdgeInfo, Edge)<br>
+                            LEdgeInfo_BoolAt(EdgeInfo, Edge)<br>
+                            LEdgeInfo_PointerAt(EdgeInfo, Edge)</tt><br>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h2><a name="apiref"></a>API Reference</h2>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Macro</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_UI1At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>UI1</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_UI2At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>UI2</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_UI4At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>UI4</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_I1At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>I1</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_I2At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>I2</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_I4At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>I4</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_F4At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>F4</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_F8At(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>F8</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_BoolAt(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>Bool</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" nowrap><tt>LEdgeInfo_PointerAt(EdgeInfo, Edge)</tt></td>
+                    <td bgColor="#e6e6e6">An edgeinfo <tt>EdgeInfo</tt>, an edge <tt>Edge</tt>.</td>
+                    <td bgColor="#e6e6e6">Gives the <tt>(void*)pointer</tt> associated to edge <tt>Edge</tt>.</td>
+                </tr>
+            </table>
+            <br>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Function</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                    <td bgColor="#e6e6e6"><b>Returns</b></td>
+                    <td bgColor="#e6e6e6"><b>Throws</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt><font color="#ff0000">New</font></tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph
+                            <br>
+                            LType_TType* inType</tt></td>
+                    <td bgColor="#e6e6e6">Creates an object containing a edgeinfo associated a graph g. 
+                        The base type of the information is given by the value of <tt>inType</tt>. The 
+                        constructor makes room for all the edges of the graph.<font color="#ff0000"> Caller 
+                            is responsible of dellocating the created object using <tt>LEdgeInfo_Delete</tt>.</font></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LEdgeInfo*</tt></p>
+                        <p>pointer to the newly created object</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>GRAPH_NULL_POINTER</tt> if <tt>inGraph</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt><font color="#ff0000">NewCustom</font></tt></td>
+                    <td bgColor="#e6e6e6" nowrap><tt>LGraph* inGraph
+                            <br>
+                            ui4 inItemSize</tt></td>
+                    <td bgColor="#e6e6e6">Creates an object containing a edgeinfo associated a graph g. 
+                        The base type size of the information is given by the value of <tt>inItemSize</tt>. 
+                        The constructor makes room for all the edges of the graph.<font color="#ff0000"> Caller 
+                            is responsible of dellocating the created object using <tt>LEdgeInfo_Delete</tt>.</font></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LEdgeInfo*</tt></p>
+                        <p>pointer to the newly created object</p>
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>GRAPH_NULL_POINTER</tt> if <tt>inGraph</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>Delete</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LEdgeInfo** ThisA</tt></td>
+                    <td bgColor="#e6e6e6">Releases object <tt>*ThisA</tt>. <tt>*ThisA</tt> is set to <tt>NULL</tt>.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>ThisA</tt> or <tt>*ThisA</tt>
+                        are <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>LEdgeInfo_ItemAt</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LEdgeInfo* This<br>
+                            LGraph_TEdge* inEdge</tt></td>
+                    <td bgColor="#e6e6e6">Returns a pointer (that has to be typecasted) to the info 
+                        associated to the edge <tt>inEdge</tt></td>
+                    <td bgColor="#e6e6e6"><tt>void*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt><br>
+                        <tt>Edge_NULL_POINTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>AssignItemAt</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LEdgeInfo* This<br>
+                            LGraph_TEdge* inEdge<br>
+                            const void* inItem</tt></td>
+                    </TD>
+                    <td bgColor="#e6e6e6">Assigns the data pointed by <tt>inItem</tt> to the edge <tt>inEdge</tt></td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL </tt>
+                        <br>
+                        <tt>EDGE_NULL_PONTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>ITEM_NULL_PONTER</tt> if <tt>inItem</tt> is <tt>NULL</tt><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>FetchItemAt</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LEdgeInfo* This<br>
+                            LGraph_TEdge* inEdge<br>
+                            void* outItem</tt></td>
+                    </TD>
+                    <td bgColor="#e6e6e6">Puts the data associated to edge <tt>inEdge</tt> to the 
+                        memory pointed by <tt>outItem</tt>. It returns TRUE is the data in <tt>outItem</tt>
+                        are valid, FALSE otherwise</td>
+                    <td bgColor="#e6e6e6"><tt>Bool</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL </tt>
+                        <br>
+                        <tt>EDGE_NULL_PONTER</tt> if <tt>inEdge</tt> is <tt>NULL</tt><br>
+                        <tt>ITEM_NULL_PONTER</tt> if <tt>outItem</tt> is <tt>NULL</tt><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetBaseType</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LEdgeInfo* This</td>
+                    <td bgColor="#e6e6e6">Returns the base type of the <tt>LEdgeInfo</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LType_TType</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetUsedMem</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LEdgeInfo* This</td>
+                    <td bgColor="#e6e6e6">Returns the total memory usage  of the object.</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+            </table>
+        <p>
+            <hr>
+            <h2><a name="history"></a>Revision history</h2>
+            <ul>
+                <li>
+                    Jan 17, 2003: created.
+                </li>
+                <li>
+                    Jan 19, 2003: Added the exception <tt>LEdgeInfo_BASE_TYPE_MISMATCH</tt>.
+                </li>
+                <li>
+                    Jan 20, 2003: Changed <tt>LEdgeInfo_ItemAt(LEdgeInfo* This, LGraph_TEdge* inEdge)</tt>
+                    from function to macro, to speed up access.
+                </li>
+                <li>
+                    Mar 04, 2003: Added <tt>LEdgeInfo_GetBaseType(LEdgeInfo* This)</tt>
+                </li>
+                <li>
+                    Mar 18, 2003: Added <tt>LEdgeInfo_GetUsedMem(LEdgeInfo* This)</tt>
+                </li>
+            </ul>
+            <hr>
+        <p align="right"><font size="-1"><A href="../index.html">Leonardo Developer Documentation</A><br>
+                Last updated: Mar 18, 2003</font></p>
+    </body>
+</html>

@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>LGroupBox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>LGroupBox</h1>
+<table width="100%" border="0" cellspacing="1" cellpadding="2">
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Description</b></td>
+    <td bgcolor="#E6E6E6"> <span lang="it">The GroupBox Widget. </span></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E6E6E6"><b>Files</b></td>
+    <td bgcolor="#E6E6E6"><tt>&lt;LGroupBox<span lang="it">.h</span>, L<span lang="it">GroupBox_win32</span>.c&gt;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Author</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Andrea Ribichini</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Created</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jun</span> <span lang="it">6</span>, 
+    200<span lang="it">2</span></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6"><b>Last updated</b></td>
+    <td bgcolor="#E6E6E6"><span lang="it">Jul</span> <span lang="it">27</span>, 
+      200<span lang="it">2</span></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#intro">Introduction</a> </li>
+  <li><a href="#interface">Interface</a></li>
+  <li><a href="#apiref">API reference</a></li>
+  <li><a href="#history">Revision history</a></li>
+</ul>
+<hr>
+<h2><b><a name="intro"></a>Introduction</b></h2>
+<p><span lang="it">The component </span> <tt>LGroupBox<span lang="it"> </span></tt><span lang="it">
+<font face="Times New Roman" size="4"> <tt><font face="Times New Roman">provides</font><font face="Times New Roman"> support for creating and managing GroupBox widgets.</font></tt></font></span></p>
+<hr>
+<h2><b><a name="interface"></a>Interface</b></h2>
+<p> 
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Constants</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LGroupBox_ID</pre>
+      <pre>LGroupBox_MAX_TEXT</pre>
+      <pre>LGroupBox_<tt><span lang="it">CANT_CREATE</span></tt>
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Types</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>struct LGroupBox</pre>
+      <pre>typedef enum tagLGroupBox_TFont {
+LGroupBox_ANSIFIXED,
+LGroupBox_ANSIVAR,
+LGroupBox_SYSTEMFIXED,
+LGroupBox_SYSTEMVAR
+} LGroupBox_TFont
+</pre>
+    </td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellspacing="1" cellpadding="4">
+  <tr> 
+    <td bgcolor="#BBBBBB" colspan="2"> 
+      <h4>Functions</h4>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" colspan="2"> 
+      <pre>LGroupBox*   LGroupBox_Create        (LWindow* inWindow, i4 inX, i4 inY, ui4 inDX, ui4 inDY, i1* inText)
+void        LGroupBox_Destroy       (LGroupBox* inGroup)
+void        LGroupBox_Move          (LGroupBox* inGroup, i4 inX, i4 inY)
+void        LGroupBox_Resize        (LGroupBox* inGroup, ui4 inWidth, ui4 inHeight)
+LWindow*    LGroupBox_GetParentWindow   (LGroupBox* inGroup)
+void        LGroupBox_SetFont       (LGroupBox* inGroup, LGroupBox_TFont inFont)
+</pre>
+    </td>
+  </tr>
+</table>
+<p> 
+<hr>
+<h2><a name="apiref"></a>API Reference</h2>
+<p>
+<table cellpadding="4" cellspacing="1">
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><b>Function</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Arguments</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Description</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Returns</b></td>
+    <td bgcolor="#E6E6E6" height="19"><b>Throws</b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="26" rowspan="6"><tt><span lang="it">
+    Create&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></tt></td>
+    <td bgcolor="#E6E6E6" height="3"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6">Creates a groupbox with the 
+    specified attributes.</td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6"> <tt>LGroupBox*</tt></td>
+    <td bgcolor="#E6E6E6" height="26" rowspan="6">
+    <font face="Courier New" size="2">CANT_CREATE</font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="5"><tt><span lang="it">i4 inY </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDX </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">ui4 inDY</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">i1* inText </span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"> 
+      <div align="left"> <tt><span lang="it">Destroy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></tt></div>
+    </td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LGroupBox* inGroup </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19"> 
+      <p>Destroys inGroup.</p>
+    </td>
+    <td bgcolor="#E6E6E6" height="19"> <tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">-</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Move</span></tt></td>
+    <td bgcolor="#E6E6E6" height="7"><tt><span lang="it">LGroupBox* inGroup </span>&nbsp;</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Moves inGroup (origin of 
+    coordinates in upper left corner of parent window).</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inX </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="6"><tt><span lang="it">i4 inY </span>&nbsp;</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt><span lang="it">
+    Resize</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LGroupBox* inGroup </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3">Resizes inGroup.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="3"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inWidth</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">ui4 inHeight</span></tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">
+    GetParentWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="2"><tt><span lang="it">LGroupBox* inGroup </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19">Returns inGroup's parent window.</td>
+    <td bgcolor="#E6E6E6" height="19"><tt><span lang="it">LWindow* inWindow</span></tt></td>
+    <td bgcolor="#E6E6E6" height="19"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt><span lang="it">
+    SetFont</span></tt></td>
+    <td bgcolor="#E6E6E6" height="1"><tt><span lang="it">LGroupBox* inGroup </span></tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2">Sets inGroup's font.</td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>void</tt></td>
+    <td bgcolor="#E6E6E6" height="19" rowspan="2"><tt>-</tt></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#E6E6E6" height="1"><span lang="it">
+    <font size="2" face="Courier New">LGroupBox_TFont</font> inFont</span></td>
+  </tr>
+  </table>
+<p><hr>
+<h2><a name="history"></a>Revision history</h2>
+<ul>
+  <li> <span lang="it">Jun</span> <span lang="it">6</span>, 200<span lang="it">2</span>: created.</li>
+  <li> Jul 27, 2002: updated.</li>
+</ul>
+<hr>
+<p align="right"><font size="-1"><a href="../index.html">Leonardo Developer Documentation</a><br>
+  Last updated: Feb 16, 2001</font></p>
+
+</body>
+</html>

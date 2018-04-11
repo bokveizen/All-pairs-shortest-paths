@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <title>LHash</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+    <body text="#000000" bgColor="#ffffff">
+        <h1>LHash</h1>
+        <table cellSpacing="1" cellPadding="2" width="100%" border="0">
+            <tr>
+                <td bgColor="#e6e6e6"><b>Description</b></td>
+                <td bgColor="#e6e6e6">Hash Table</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Files</b></td>
+                <td bgColor="#e6e6e6"><tt>&lt;LHash.h, LHash.c&gt;</tt></td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Author</b></td>
+                <td bgColor="#e6e6e6"><A href="mailto:thepomy@tin.it">Stefano Emiliozzi</A>
+                </td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Created</b></td>
+                <td bgColor="#e6e6e6">Dec 28, 2002</td>
+            </tr>
+            <tr>
+                <td bgColor="#e6e6e6"><b>Last updated</b></td>
+                <td bgColor="#e6e6e6">Jun 18, 2003</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Contents</h2>
+        <ul>
+            <li>
+                <A href="#intro">Introduction</A>
+            <li>
+                <A href="#interface">Interface</A>
+            <li>
+                <A href="#apiref">API reference</A>
+            <li>
+                <A href="#history">Revision history</A></li></ul>
+        <hr>
+        <h2><b><a name="intro"></a>Introduction</b></h2>
+        The component <tt>LHash</tt> provides support for maintaining an hash table 
+        that is dynamically expanded or shrinked in order to have a good balance 
+        between access time and memory usage. The hash function works on 32-bit keys. 
+        Member methods allow to insert, remove, find items. The items used in the table 
+        are 32-bit long, so the user can&nbsp;handle them at his needs (i.e. uses 
+        different data types).
+        <p>
+            <hr>
+            <h2><b><a name="interface"></a>Interface</b></h2>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Constants</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><pre>LHash_ID<br>LHash_OBJECT_NULL_POINTER</pre>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Types</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><pre>struct LHash</pre>
+                    </td>
+                </tr>
+            </table>
+            <table cellSpacing="1" cellPadding="4" width="100%" border="0">
+                <tr>
+                    <td bgColor="#bbbbbb" colSpan="2">
+                        <h4>Functions</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6" colSpan="2"><tt>LHash* LHash_New()</tt>
+                        <br>
+                        <tt>void LHash_Delete(LHash** ThisA)</tt>
+                        <br>
+                        <tt>void LHash_InsertItem(LHash* This, void* inItem, ui4 inKey)</tt>
+                        <br>
+                        <tt>void LHash_RemoveItem(LHash* This, ui4 inKey)</tt>
+                        <br>
+                        <tt>Bool LHash_IsInTable(LHash* This, ui4 inKey)</tt>
+                        <br>
+                        <tt>void LHash_RemoveAllItems(LHash* This)</tt>
+                        <br>
+                        <tt>void* LHash_GetItemByKey(LHash* This, ui4 inKey)</tt>
+                        <br>
+                        <tt>ui4 LHash_GetUsedMem(LHash* This)</tt>
+                        <br>
+                        <tt>ui4 LHash_GetItemsCount(LHash* This)</tt>
+                        <br>
+                        <tt>ui4 LHash_GetCollisionKeysCount(LHash* This)</tt>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h2><a name="apiref"></a>API Reference</h2>
+            <table cellSpacing="1" cellPadding="4" width="100%">
+                <tr>
+                    <td bgColor="#e6e6e6"><b>Function</b></td>
+                    <td bgColor="#e6e6e6"><b>Arguments</b></td>
+                    <td bgColor="#e6e6e6"><b>Description</b></td>
+                    <td bgColor="#e6e6e6"><b>Returns</b></td>
+                    <td bgColor="#e6e6e6"><b>Throws</b></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt><font color="#ff0000">New</font></tt></td>
+                    <td bgColor="#e6e6e6">-</td>
+                    <td bgColor="#e6e6e6">Creates object containing an empty hash table. <font color="#ff0000">
+                            Caller is responsible of dellocating the created object using <tt>LHash_Delete</tt>.</font></td>
+                    <td bgColor="#e6e6e6">
+                        <p><tt>LHash*</tt></p>
+                        <p>pointer to newly created object</p>
+                    </td>
+                    <td bgColor="#e6e6e6">-</td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>Delete</tt></td>
+                    <td bgColor="#e6e6e6"><tt>LHash** ThisA</tt></td>
+                    <td bgColor="#e6e6e6">Releases object <tt>*ThisA</tt>. <tt>*ThisA</tt> is set to <tt>NULL</tt>.
+                    </td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>ThisA</tt> or <tt>*ThisA</tt>
+                        are <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>InsertItem</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt>
+                        <br>
+                        <tt>void* inItem</tt>
+                        <br>
+                        <tt>ui4 inKey</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">
+                        Inserts the item&nbsp; in the table, using key <tt>inKey</tt>.</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>RemoveItem</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt>
+                        <br>
+                        <tt>ui4 inKey</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">
+                        Remove the item from the table, using key <tt>inKey</tt> to locate it.</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL </tt>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>IsInTable</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt>
+                        <br>
+                        <tt>ui4 inKey</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">Returns TRUE if the item with key <tt>inKey</tt> is in the 
+                        table.</td>
+                    <td bgColor="#e6e6e6"><tt>Bool</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>RemoveAllItems</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt></td>
+                    <td bgColor="#e6e6e6">
+                        Remove all the items from the table</td>
+                    <td bgColor="#e6e6e6"><tt>void</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetItemByKey</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt>
+                        <br>
+                        <tt>ui4 inKey</tt>
+                    </td>
+                    <td bgColor="#e6e6e6">
+                        Returns the item bound to key <tt>inKey</tt></td>
+                    <td bgColor="#e6e6e6"><tt>void*</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetUsedMem</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the memory usage (in bytes) of the&nbsp;whole 
+                        structure</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetItemsCount</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the number of items in the table</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+                <tr>
+                    <td bgColor="#e6e6e6"><tt>GetCollisionKeysCount</tt></td>
+                    <td noWrap bgColor="#e6e6e6"><tt>LHash* This</tt></td>
+                    <td bgColor="#e6e6e6">Returns the number of unique (i.e. at least one collision) 
+                        collision keys</td>
+                    <td bgColor="#e6e6e6"><tt>ui4</tt></td>
+                    <td bgColor="#e6e6e6"><tt>OBJECT_NULL_POINTER</tt> if <tt>This</tt> is <tt>NULL</tt></td>
+                </tr>
+            </table>
+        <p>
+            <hr>
+            <h2><a name="history"></a>Revision history</h2>
+            <ul>
+                <li>
+					Jan 5, 2003: created.
+				</li>
+                <li>
+                    Jan 8, 2003: changed GetTableSize in GetUsedMem. Changed also the type of 
+                    reference in the structure, from pointers to ui4.
+                </li>
+				<li>
+                    Jun 18, 2003: Changed again the type of item in the structure, from ui4 to void*.
+					This ensures compatibility with 64-bit architectures.
+                </li>
+
+            </ul>
+            <hr>
+        <p align="right"><font size="-1"><A href="../index.html">Leonardo Developer Documentation</A><br>
+                Last updated: Jan 8, 2003</font></p>
+    </body>
+</html>

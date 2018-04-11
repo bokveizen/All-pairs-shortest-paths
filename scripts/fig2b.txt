@@ -1,0 +1,138 @@
+# experiment on CDAPSP for decreasing beta
+t
+e
+fig2b
+s
+m
+------ create random graph (n=500, m=1500, w=1..10)
+g
+r
+314
+500
+1500
+1
+10
+m
+------ create sequence
+s
+314
+10
+m
+------ beta = 1
+t
+d
+0.0
+1.0
+m
+d
+------ beta = 0.9
+t
+d
+0.0
+0.9
+m
+d
+------ beta = 0.8
+t
+d
+0.0
+0.8
+m
+d
+------ beta = 0.7
+t
+d
+0.0
+0.7
+m
+d
+------ beta = 0.6
+t
+d
+0.0
+0.6
+m
+d
+------ beta = 0.5
+t
+d
+0.0
+0.5
+m
+d
+------ beta = 0.4
+t
+d
+0.0
+0.4
+m
+d
+------ beta = 0.3
+t
+d
+0.0
+0.3
+m
+d
+------ turn error checking on
+t
+c
+m
+------ beta = 1
+t
+d
+0.0
+1.0
+m
+d
+------ beta = 0.9
+t
+d
+0.0
+0.9
+m
+d
+------ beta = 0.8
+t
+d
+0.0
+0.8
+m
+d
+------ beta = 0.7
+t
+d
+0.0
+0.7
+m
+d
+------ beta = 0.6
+t
+d
+0.0
+0.6
+m
+d
+------ beta = 0.5
+t
+d
+0.0
+0.5
+m
+d
+------ beta = 0.4
+t
+d
+0.0
+0.4
+m
+d
+------ beta = 0.3
+t
+d
+0.0
+0.3
+m
+d
+------
+q
