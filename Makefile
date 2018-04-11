@@ -12,7 +12,7 @@
 #                           Macros
 #                           -------------------------------------
 LL_PATH =                   ../ll/
-C  =                        gcc -O4 -lm -I$(LL_PATH)include -Iinclude -I../include -o dsp
+C  =                        gcc -lm -I$(LL_PATH)include -Iinclude -I../include -o dsp
 LL =                        $(LL_PATH)src/core/common/*.c $(LL_PATH)src/core/posix/*.c
 
 #                           -------------------------------------
@@ -20,7 +20,10 @@ LL =                        $(LL_PATH)src/core/common/*.c $(LL_PATH)src/core/pos
 #                           -------------------------------------
 
 all:
-	                        cd bin; $(C) $(LL) ../src/*.c
+	                        cd bin; $(C) -O4 $(LL) ../src/*.c
+
+debug:
+	                        cd bin; $(C) -O0 -g -fbuiltin $(LL) ../src/*.c
 
 clean:
 	                        cd bin; rm -f *
