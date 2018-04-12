@@ -19,6 +19,8 @@ LL =                        $(LL_PATH)src/core/common/*.c $(LL_PATH)src/core/pos
 #                           Rules
 #                           -------------------------------------
 
+.PHONY: all debug clean pack
+
 all:
 	                        cd bin; $(C) -O4 $(LL) ../src/*.c
 
