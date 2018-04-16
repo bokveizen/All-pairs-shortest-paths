@@ -10,7 +10,7 @@
  *  Last changed:   $Date: 2003/06/17 12:47:24 $
  *  Changed by:     $Author: stefano $	 
  *  Revision:       $Revision: 1.4 $	
- */
+*/
 
 #ifndef __LHash__
 #define __LHash__
@@ -25,9 +25,9 @@ typedef struct LHash LHash;
 
 struct LHash 
 {
-	struct		TSlot*	mData;
-	ui4				mDataSize;
-	ui4				mItemsCount;    /* number of items                            */
+    struct TSlot*	mData;
+    ui4				mDataSize;
+    ui4				mItemsCount;    /* number of items                            */
 	ui4				mEntriesCount;  /* number of entries                          */
 	ui1				mHashLength;    /* lenght of the hashing value                */
 	ui4				mCollisionKeys; /* number of keys with at least one collision */
@@ -37,22 +37,22 @@ struct LHash
 
 enum 
 {
-				LHash_OBJECT_NULL_POINTER = LHash_ID<<16
+	LHash_OBJECT_NULL_POINTER = LHash_ID<<16
 };
 
 
-LHash*	LHash_New							();
-void		LHash_Delete					(LHash** ThisA);
-void		LHash_InsertItem			(LHash* This, void* inItem, ui4 inKey);
-void		LHash_RemoveItem			(LHash* This, ui4 inKey);
-Bool		LHash_IsInTable				(LHash* This, ui4 inKey);
-void		LHash_RemoveAllItems	(LHash* This);
-void*		LHash_GetItemByKey		(LHash* This, ui4 inKey);
-ui4			LHash_GetUsedMem			(LHash* This);
-ui4			LHash_GetItemsCount		(LHash* This);
-ui4			LHash_GetCollisionKeysCount  (LHash* This);
-void		LHash_SetDebug				(LHash* This, Bool inDebug);
-void		LHash_Dump						(LHash* This);
+LHash*     LHash_New					();
+void       LHash_Delete					(LHash** ThisA);
+void       LHash_InsertItem				(LHash* This, void* inItem, ui4 inKey);
+void       LHash_RemoveItem				(LHash* This, ui4 inKey);
+Bool       LHash_IsInTable				(LHash* This, ui4 inKey);
+void       LHash_RemoveAllItems			(LHash* This);
+void*	   LHash_GetItemByKey			(LHash* This, ui4 inKey);
+ui4        LHash_GetUsedMem				(LHash* This);
+ui4        LHash_GetItemsCount			(LHash* This);
+ui4        LHash_GetCollisionKeysCount  (LHash* This);
+void       LHash_SetDebug			    (LHash* This, Bool inDebug);
+void       LHash_Dump					(LHash* This);
 
 #endif
 
@@ -71,4 +71,4 @@ void		LHash_Dump						(LHash* This);
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+*/
