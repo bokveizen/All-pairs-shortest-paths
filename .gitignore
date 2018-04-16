@@ -53,4 +53,4 @@ dkms.conf
 
 bin/*
 *.swp
-*.res
+*_.res
