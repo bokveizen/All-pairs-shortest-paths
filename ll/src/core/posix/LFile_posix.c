@@ -21,6 +21,7 @@
 #include "LException.h"
 #include "LMemory.h"
 #include "LDebug.h"
+#include <stdlib.h>
 
 
 /* MEMBER VARIABLES */
