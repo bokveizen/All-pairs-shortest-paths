@@ -1654,7 +1654,7 @@ static void _RunCDAPSP_D(){
 					LDebug_Print("(%u, %u) W:%u\n", theEdge->mSource->mIndex, theEdge->mTarget->mIndex,
 						LEdgeInfo_UI4At(sData.mEdgeWeights, theEdge));
 			}
-			/* ******************DEBUG********************************* */
+			** ******************DEBUG********************************* */
 			
 			LEdgeInfo_UI4At(sData.mEdgeWeights, theUpdate.mEdge) = theUpdate.mWeight;
 			if (theUpdate.mWeight == MAIN_INFINITY)
