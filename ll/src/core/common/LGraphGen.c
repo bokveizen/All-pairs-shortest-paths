@@ -564,7 +564,7 @@ Bool LGraphGen_LoadDimacs(i1* inPathName, LGraph** outGraph,
 		{
 			LString_Copy(theToken, theTokenList[i]);
 			i++;
-			while(theToken = LString_Tokenizer(NULL, " \n\r"))
+			while((theToken = LString_Tokenizer(NULL, " \n\r")))
 			{
 				LString_Copy(theToken, theTokenList[i]);
 				i++;
@@ -707,7 +707,7 @@ Bool LGraphGen_LoadXML(i1* inPathName, LGraph** outGraph,
 				ui1 i = 0;
 				ui1 j;
 
-				while (theToken = LString_Tokenizer(NULL, " =\""))
+				while ((theToken = LString_Tokenizer(NULL, " =\"")))
 				{/* copies all the token */
 					LString_Copy(theToken, theTokenList[i]);
 					i++;
@@ -736,7 +736,7 @@ Bool LGraphGen_LoadXML(i1* inPathName, LGraph** outGraph,
 				ui1 i = 0;
 				ui1 j;
 
-				while (theToken = LString_Tokenizer(NULL, " =\""))
+				while ((theToken = LString_Tokenizer(NULL, " =\"")))
 				{/* copies all the tokens */
 					LString_Copy(theToken, theTokenList[i]);
 					i++;

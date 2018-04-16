@@ -918,7 +918,7 @@ static ui4 _GetMinPath(LDSP* This, ui2 inX, ui2 inY){
         /* extract minimum weight path */
         if (theMinPath == _LDSP_NIL || 
             _Path[thePath].mW < _Path[theMinPath].mW || 
-            _Path[thePath].mW == _Path[theMinPath].mW && _Path[thePath].mTB < _Path[theMinPath].mTB) 
+            (_Path[thePath].mW == _Path[theMinPath].mW && _Path[thePath].mTB < _Path[theMinPath].mTB)) 
             theMinPath = thePath;
     }
 
