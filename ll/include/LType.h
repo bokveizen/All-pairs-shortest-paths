@@ -83,16 +83,16 @@ typedef struct {
 
 
 /* INTRINSIC TYPE RECORDS */
-const extern LType_TType LType_UI1;
-const extern LType_TType LType_UI2;
-const extern LType_TType LType_UI4;
-const extern LType_TType LType_I1;
-const extern LType_TType LType_I2;
-const extern LType_TType LType_I4;
-const extern LType_TType LType_F4;
-const extern LType_TType LType_F8;
-const extern LType_TType LType_Bool;
-const extern LType_TType LType_Ptr;
+extern const LType_TType LType_UI1;
+extern const LType_TType LType_UI2;
+extern const LType_TType LType_UI4;
+extern const LType_TType LType_I1;
+extern const LType_TType LType_I2;
+extern const LType_TType LType_I4;
+extern const LType_TType LType_F4;
+extern const LType_TType LType_F8;
+extern const LType_TType LType_Bool;
+extern const LType_TType LType_Ptr;
 
 
 /* LIMITS */
