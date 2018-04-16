@@ -333,7 +333,7 @@ void LDSP_UpdateEdge(LDSP* This, ui2 inU, ui2 inV, ui4 inW){
     ui4 theSmoothingTime;
     ui4 theWindow = (This->mTime > This->mN) ? This->mN : This->mTime;
 
-    if (inU >= This->mN || inV >= This->mN || inW < 0 || inU == inV) 
+    if (inU >= This->mN || inV >= This->mN || inU == inV) 
         Throw(LDSP_BAD_PARAMETERS);
 
     /* update time counter and date edge (inX,inY) */

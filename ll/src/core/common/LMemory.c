@@ -75,7 +75,9 @@ void* LMemory_Realloc(void* inPtr, ui4 inSize){
 
     theTemp=realloc(inPtr,inSize);
     if (theTemp==NULL) 
+		{
         Throw(LMemory_OUT_OF_MEMORY);
+		}
 
     return theTemp;
 }
