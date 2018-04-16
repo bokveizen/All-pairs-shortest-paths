@@ -204,8 +204,8 @@ static void _Compute(LSP* This) {/** Not SceneRebuildOn; **/
 
             /* relaxation and tie breaking */
             if (theEDist <  This->mMatrix[theXP][theY].mDist ||
-                theEDist == This->mMatrix[theXP][theY].mDist && 
-                theETB   <  This->mMatrix[theXP][theY].mTB) {
+                (theEDist == This->mMatrix[theXP][theY].mDist && 
+                 theETB   <  This->mMatrix[theXP][theY].mTB)) {
 
                 if (This->mMatrix[theXP][theY].mHeapIdx != 0xFFFFFFFF) {
                     #if LSP_STATISTICS == 1
@@ -248,8 +248,8 @@ static void _Compute(LSP* This) {/** Not SceneRebuildOn; **/
 
             /* relaxation and tie breaking */
             if (theEDist <  This->mMatrix[theX][theYP].mDist ||
-                theEDist == This->mMatrix[theX][theYP].mDist &&
-                theETB   <  This->mMatrix[theX][theYP].mTB) {
+                (theEDist == This->mMatrix[theX][theYP].mDist &&
+                 theETB   <  This->mMatrix[theX][theYP].mTB)) {
 
                 if (This->mMatrix[theX][theYP].mHeapIdx != 0xFFFFFFFF) {
                     #if LSP_STATISTICS == 1
@@ -281,12 +281,12 @@ static void _Compute(LSP* This) {/** Not SceneRebuildOn; **/
  * ----------------------------------------------------------------------------
 */
 static Bool _Comparator(ui4 inA, ui4 inB) {
-    return sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mDist <
-           sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mDist ||
-           sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mDist ==
-           sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mDist &&
-           sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mTB <
-           sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mTB;
+    return   sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mDist  <
+             sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mDist  ||
+           ((sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mDist  ==
+             sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mDist) &&
+            (sThis->mMatrix[_LSP_Unpack1(inA)][_LSP_Unpack2(inA)].mTB <
+             sThis->mMatrix[_LSP_Unpack1(inB)][_LSP_Unpack2(inB)].mTB));
 }
 
 

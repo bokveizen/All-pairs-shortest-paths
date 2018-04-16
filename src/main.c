@@ -682,7 +682,7 @@ static void _MakeBottleNeckTestSet(ui2 inN, f8 inDensity, ui4 inNumOp, ui4 inSee
 
     /* adjust inN... */
     if (inN < 6) inN = 6;
-    if ((inN-2) & 0xFFFC) inN = (inN-2) & 0xFFFC + 2;
+    if ((inN-2) & 0xFFFC) inN = (inN-2) & (0xFFFC + 2);
     theL = (inN-2)/4;
 
     Try {

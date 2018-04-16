@@ -931,9 +931,9 @@ static ui4 _GetMinPath(LDSP* This, ui2 inX, ui2 inY){
  * ----------------------------------------------------------------------------
  * comparator for priority queue mH */
 static Bool _HComparator(ui4 inKeyA,  ui4 inKeyB){
-    return sThis->mArenaBase[inKeyA].mW  <  sThis->mArenaBase[inKeyB].mW  ||
-           sThis->mArenaBase[inKeyA].mW  == sThis->mArenaBase[inKeyB].mW  &&
-           sThis->mArenaBase[inKeyA].mTB <  sThis->mArenaBase[inKeyB].mTB;
+    return  sThis->mArenaBase[inKeyA].mW  <  sThis->mArenaBase[inKeyB].mW  ||
+           (sThis->mArenaBase[inKeyA].mW  == sThis->mArenaBase[inKeyB].mW  &&
+            sThis->mArenaBase[inKeyA].mTB <  sThis->mArenaBase[inKeyB].mTB);
 }
 
 
