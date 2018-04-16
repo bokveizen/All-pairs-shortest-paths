@@ -25,7 +25,7 @@ all:
 	                        cd bin; $(C) -O4 $(LL) ../src/*.c
 
 debug:
-	                        cd bin; $(C) -O0 -g -fbuiltin $(LL) ../src/*.c
+	                        cd bin; $(C) -O0 -g -fbuiltin -Wall -Wextra $(LL) ../src/*.c
 
 clean:
 	                        cd bin; rm -f *
