@@ -162,7 +162,7 @@ void LFile_Rename(const i1* inOldFileName, const i1* inNewFileName){
 void LFile_GetTempName(i1 outFileName[LFile_MAX_PATHNAME_LEN]){
 	#ifndef LEONARDO
     if (L_tmpnam>LFile_MAX_PATHNAME_LEN) Throw(LDebug_INTERNAL_ERROR);
-    tmpnam(outFileName);
+    mkstemp(outFileName);
 	#endif
 }
 
